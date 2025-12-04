@@ -1,0 +1,21 @@
+p{
+      font-family:Arial;
+      margin-top:0;
+      margin-bottom:5px;
+    }
+    .price{
+      font-size:30px
+    }
+    .usd{
+      font-size:15px;
+      color:grey;
+    }
+    .today{
+      color:rgb(2, 165, 2)
+    }
+    .after{
+      color:grey;
+    }
+    .minus{
+      color:rgb(218, 2, 2)
+    }

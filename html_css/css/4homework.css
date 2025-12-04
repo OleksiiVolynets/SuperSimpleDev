@@ -1,0 +1,39 @@
+ .scretch{
+      background-color: green;
+      color:white;
+      padding:12px 25px;
+      border:none;
+      cursor:pointer;
+      transition:padding 0.8s;
+
+    }
+    .scretch:hover{
+      padding:25px 55px
+    }
+    .shadow{
+      background-color: green;
+      color:white;
+      padding:12px 25px;
+      border:none;
+      cursor:pointer;
+      box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+    }
+    .shadow:active{
+      box-shadow:none;
+      margin: 5px 5px;}
+    .one{
+      background-color: green;
+      color:white;
+      padding:12px 25px;
+      border:none;
+      cursor:pointer;
+      margin:0 10px;
+      transition: padding 0.15s, margin 0.15s;
+      }
+      
+    .one:hover{
+      padding:12px 30px;
+      margin:0 0;
+
+    }
+    

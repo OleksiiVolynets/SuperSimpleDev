@@ -1,0 +1,29 @@
+.nervy{
+  width:50px;
+  height:50px;
+  border-radius:25px;
+   vertical-align: middle;
+}
+.input{
+  border:none;
+  font-size:20px;
+  vertical-align: middle;
+  width:300px;
+}
+.tweet{
+  font-family: Arial;
+  color:white;
+  background-color:rgb(29, 161, 242);
+  padding:7px 13px;
+  vertical-align:middle;
+  border:none;
+  border-radius:14px;
+  font-weight:bold;
+  font-size:16px;
+}
+.div{
+  box-shadow:2px 2px 7px rgba(0,0,0,0.3);
+  width:500px;
+  border-radius:5px;
+  padding:5px 8px;
+}

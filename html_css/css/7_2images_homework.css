@@ -1,0 +1,31 @@
+p{
+  font-family:Arial;
+  margin-top:0;
+  margin-bottom:0;
+  color:grey
+}
+.email{
+  margin-bottom:7px;
+}
+.text{
+  width:300px;
+  border:1px solid black;
+  border-radius: 3px;
+  padding:5px 0;
+  margin-bottom: 7px;
+
+}
+.description{
+  margin-bottom: 7px;
+}
+.button{
+  width:400px;
+  color:white;
+  background-color: rgb(71, 94, 201);
+  border:none;
+  font-size:18px;
+  text-align:center;
+  padding:9px;
+  border-radius:20px;
+  cursor:pointer;
+}

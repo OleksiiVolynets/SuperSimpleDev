@@ -1,0 +1,20 @@
+p{
+      font-family:Arial;
+      margin-top:0;
+      margin-bottom:8px;
+    }
+    .text{
+      font-weight:bold;
+    }
+    .when{
+      color:grey;
+      font-weight:0;
+    }
+    .description{
+      width:550px;
+      margin-bottom:22px;
+      line-height: 22px;
+    }
+    .user{
+      color:rgb(0, 162, 255)
+    }

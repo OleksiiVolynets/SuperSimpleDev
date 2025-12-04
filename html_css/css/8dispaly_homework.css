@@ -1,0 +1,48 @@
+.input{
+  width:200px;
+  padding:7px;
+  color:greenyellow;
+  display:block;
+  border:1px solid rgb(124, 123, 123);
+  border-radius:4px;
+  margin-bottom: 5px;
+}
+.text{
+  font-family:Arial;
+  font-size:17px;
+  width:300px;
+  display:inline-block;
+  vertical-align:middle;
+}
+.yes,.no{
+  border:none;
+  color:white;
+  padding:7px 8px;
+  background-color: black;
+  border-radius:4px;
+  cursor:pointer;
+  
+}
+.yes{
+  background-color: rgb(5, 180, 5);
+}
+.no{
+  background-color: rgba(255, 0, 0, 0.815);
+}
+.yes:hover,.no:hover{
+  box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
+
+}
+.Google{
+  width:500px;
+  border:none;
+  font-size:20px;
+  padding:7px 9px;
+  box-shadow: 0px 0px 10px rgba(0,0,0, 0.2);
+  border-radius:16px;
+}
+.google{
+  width:200px;
+  display:block;
+  margin:5px 150px;
+}
