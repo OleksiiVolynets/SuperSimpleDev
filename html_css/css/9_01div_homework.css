@@ -1,0 +1,46 @@
+.shape{
+    width:100px;
+    height:100px;
+    display:inline-block;
+    margin:10px 10px;
+}
+
+.square{
+    background-color:red;
+    
+}
+.circle{
+    background-color:green;
+    border-radius:50%;
+}
+.task{
+    border:1px solid grey;
+    width:300px;
+    padding:12px 17px;
+
+}
+.question{
+    font-size:18px;
+    color:grey;
+    font-family:Arial;
+    margin-bottom:10px;
+}
+.answer{
+    border:none;
+    border-radius:7px;
+    padding:7px 12px;
+    cursor:pointer;
+    color:white;
+    transition:opacity 0.3s;
+    margin:0 2px;
+    
+}
+.answer:hover{
+    opacity:0.8;
+}
+.yes{
+    background-color: rgb(95, 233, 68);
+}
+.no{
+    background-color:rgb(219, 49, 49);
+}
