@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .header{
+      font-size: 24px;
+      font-weight: bold;
+      font-family: Arial;
+    }
+    .price{
+      font-size: 18px;
+      color: green;
+    }
+    .Cart, .BuyNow{
+      color:white;
+      border:none;
+      padding:10px 20px;
+      cursor:pointer;
+      transition: box-shaddow 0.3s ease;
+    }
+      .Cart:hover, .BuyNow:hover{
+        box-shadow:4px 4px 5px rgba(0,0,0,0.4);
+      }
+    .Cart{
+      background-color: yellow;
+    }
+    .BuyNow{
+      background-color: rgb(255, 81, 0);
+    }
+  </style>
+</head>
+<body>
+  <p class="header">Adults Plain Cotton T-shirt</p>
+  <p class="price">Price: $19.99</p>
+  <button class="Cart" onclick="alert('Added to cart!')">Add to Cart</button>
+  <button class="BuyNow" onclick="console.log('Proceeding to checkout!'); alert('Purchased')">Buy Now</button>
+</body>
+</html>

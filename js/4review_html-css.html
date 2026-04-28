@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      button{
+        background-color: rgb(132, 0, 255);
+        color:white;
+        border:none;
+        padding:10px 20px;
+        cursor:pointer;
+        transition: box-shadow 0.3s ease;
+      }
+      button:hover{
+        box-shadow:4px 4px 5px rgba(0,0,0,0.4);
+      }
+      .red-button{
+        background-color: red;
+      }
+      .orange-button{
+        background-color: orange;
+      }
+
+    </style>
+  </head>
+  <body >
+    <button title="tooltip" class="red-button" onclick="alert('Red button clicked!')">Click me</button>
+
+    <p>Paragraph text <button class="orange-button" onclick="alert('Orange button clicked!')">Inner button</button></p>
+    <script>
+      //This is my first JavaScript code
+      alert("Hello, World!")
+      console.log("This is a message in the console.");
+      console.log(2+2);
+    </script>
+  </body>
+</html>

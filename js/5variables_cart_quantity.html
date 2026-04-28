@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Cart Quantity: </p>
+  <button onclick="updateCartQuantity(0)">Show quantity</button>
+  <button onclick="updateCartQuantity(1)" >Add to Cart</button>
+  <button onclick="updateCartQuantity(2)">+2</button>
+  <button onclick="updateCartQuantity(3)">+3</button>
+  <button onclick="updateCartQuantity(-cart_quantity)">Reset Cart</button>
+  <button onclick="updateCartQuantity(-1)">Remove from Cart</button>
+  <button onclick="updateCartQuantity(4)">+4</button>
+  <button onclick="updateCartQuantity(5)">+5</button>
+  <button onclick="updateCartQuantity(-2)">-2</button>
+  <button onclick="updateCartQuantity(-3)">-3</button>
+  <p class="js-display"></p>
+
+
+  <script>
+    const paragraph=document.querySelector('.js-display');
+    let cart_quantity=Number(localStorage.getItem('cart'));
+    function updateCartQuantity(param){
+      if(cart_quantity+param>10){
+        paragraph.innerHTML='The cart is full';
+        return
+      }
+      if(cart_quantity+param<0){
+        paragraph.innerHTML='The are no items in the cart';
+        return
+      }
+      if(param===-cart_quantity){
+        localStorage.removeItem('cart');
+      }
+      cart_quantity+=param
+      paragraph.innerHTML=`Cart quantity: ${cart_quantity}`
+      localStorage.setItem('cart',cart_quantity);
+    }
+  </script>
+</body>
+</html>

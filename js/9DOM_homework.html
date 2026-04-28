@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>9a</button>
+  <button class="second">9b</button>
+  <input type="text" onkeydown="Enter(event)" class="input-name">
+  <button onclick="displayName()">Submit</button>
+  <p class="displayed-name"></p>
+  <input type="text" onkeyup="Type()" class="input-second">
+  <p class="onkeyup-paragraph"></p>
+  <script>
+    const inp=document.querySelector(".input-second");
+    function Type(){
+      document.querySelector(".onkeyup-paragraph").innerHTML=inp.value;
+    }
+    console.log(document.querySelector('button'))
+    const a=document.querySelector(".second");
+    a.innerHTML="9b done!"
+
+    function Enter(event){
+      if(event.key==='Enter'){
+        displayName();
+      }
+    }
+    function displayName(){
+      document.querySelector('.displayed-name').innerHTML=`Your name is ${document.querySelector('.input-name').value}`
+    }
+  </script>
+</body>
+</html>

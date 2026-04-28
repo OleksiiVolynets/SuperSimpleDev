@@ -44,3 +44,25 @@
 .no{
     background-color:rgb(219, 49, 49);
 }
+.Youtube_div{
+    width:330px;
+    background-color:rgb(34, 34, 34);
+    margin-top: 10px;
+    padding:23px 18px;
+
+}
+.Youtube{
+    font-family:Arial;
+    margin:0;
+}
+.title{
+    color:rgb(226, 222, 222);
+    font-size:22px;
+    margin-bottom:15px;
+    font-weight: bold;
+}
+.description{
+    color:rgb(170, 170, 170);
+    
+    
+}

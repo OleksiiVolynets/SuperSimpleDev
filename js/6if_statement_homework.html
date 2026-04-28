@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booleans homework</title>
+</head>
+<body>
+  <button onclick="const computerGuess=Math.random();
+  let computerChoice=''
+  if(computerGuess>=0 && computerGuess<0.5){
+    computerChoice='heads'
+  }else{
+    computerChoice='tails'
+  }
+  if(computerChoice==='heads'){
+    result='You win'
+  }
+  else{
+    result='You lose'
+  }
+  alert(`You chose heads.Computer chose ${computerChoice} Result: ${result}`)"
+  >Heads</button>
+  <button onclick="const computerGuess1=Math.random();
+  let computerChoice1=''
+  if(computerGuess1>=0 && computerGuess1<0.5){
+    computerChoice1='heads'
+  }else{
+    computerChoice1='tails'
+  }
+  let result='';
+  if(computerChoice1==='tails'){
+    result1='You win'
+  }
+  else{
+    result1='You lose'
+  }
+  alert(`You chose tails.Computer chose ${computerChoice1} Result: ${result1}`)">Tails</button>
+
+  <script>
+    'use strict';
+    //6a 6b 6c
+    const hour=19;
+    const name='Alex';
+    if(hour>=6 && hour<=12){
+      console.log(`Good morning ${name}`)
+    }
+    else if(hour>=13 && hour<=17){
+      console.log(`Good afternoon ${name}`)
+    }
+    else{
+      console.log(`Good night ${name}`)
+    }
+
+    //6d 6e 
+    const age=67;
+    const Isholiday=false;
+    if((age<=6 || age>=65)&&Isholiday){
+      console.log('Discount')
+    }
+    else{
+      console.log('No discount')
+    }
+
+
+  </script>
+</body>
+</html>

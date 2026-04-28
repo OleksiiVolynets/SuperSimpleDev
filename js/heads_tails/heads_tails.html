@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="playGame('heads')">Heads</button>
+  <button onclick="playGame('tails')">Tails</button>
+  <button onclick="resetScore()">Reset score</button>
+  <p class="js-choice"></p>
+  <p class="js-score"></p>
+
+  <script>
+    const score=JSON.parse(localStorage.getItem('score'))||{
+      wins:0,
+      losses:0
+      
+    }
+    document.querySelector('.js-score').innerHTML=`Wins: ${score.wins} Losses: ${score.losses}`
+    function resetScore(){
+      score.wins=0;
+      score.losses=0;
+      localStorage.removeItem('score');
+      document.querySelector('.js-score').innerHTML=`Wins: ${score.wins} Losses: ${score.losses}`
+    }
+    function computerChoice(){
+      const computerGuess1=Math.random();
+      let computerChoice=''
+      if(computerGuess1>=0 && computerGuess1<0.5){
+        computerChoice='heads'
+      }else{
+        computerChoice='tails'
+      }
+      return computerChoice;
+    }
+    function playGame(guess){
+      const computerMove=computerChoice();
+      let result=''
+      if(guess===computerMove){
+        result='You win'
+        score.wins++
+
+      }
+      else{
+        result='You lose'
+        score.losses++
+      }
+      localStorage.setItem('score',JSON.stringify(score));
+      document.querySelector('.js-choice').innerHTML=`You chose ${guess}.Computer chose ${computerMove} Result: ${result}` 
+      document.querySelector('.js-score').innerHTML=`Wins: ${score.wins} Losses: ${score.losses}`
+//       alert(`You chose ${guess}.Computer chose ${computerMove} Result: ${result} 
+// Wins: ${score.wins} Losses: ${score.losses}`)
+    }
+  </script>
+</body>
+</html>

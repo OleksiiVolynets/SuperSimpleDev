@@ -1,0 +1,39 @@
+img{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+}
+.block{
+  display:inline-block;
+  position:relative;
+}
+.discount{
+  position:absolute;
+  top:10px;
+  right:0;
+  background-color: black;
+  color:white;
+  font-family:Arial;
+  padding:7px 12px;
+}
+.description{
+  
+  background-color: rgba(255, 255, 255, 0.6);
+
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:75px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart{
+  padding:5px 10px;
+  background-color: rgb(94, 94, 94);
+  color:white;
+  font-weight:bold;
+  border:none;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booleans</title>
+</head>
+<body>
+  
+
+
+  <script>
+    // console.log(3<5);//true
+    // console.log(3>5);//false
+    // console.log(5=='5');//true
+    // console.log(5==='5');//false
+    // console.log(3>5-5);//true
+    // if(false){
+    //   console.log('Hello, World!');
+    // }
+    // else{
+    //   console.log('Goodbye, World!');
+    // }
+
+    // const age=14;
+    // if(age>=16){
+    //   console.log('You are allowed to vote.');
+    // }
+    // else if(age>=14){
+    //   console.log('You are almost allowed to vote and drink alcohol.');
+    // }
+    // else if(age%2==0){
+    //   console.log('You are even.');
+    // }
+    // else{
+    //   console.log('You are odd.');
+    // }
+
+
+    // logical operators
+    //&& (AND), || (OR), ! (NOT)
+    
+
+    if(5){
+      console.log('This will always run because 5 is a truthy value.');
+    }// truthy values: non-empty strings, non-zero numbers, true, objects, arrays
+    if(0){
+      console.log('This will never run because 0 is a falsy value.');
+    }// falsy values: 0, '', false, null, undefined, NaN
+
+
+
+    const cart=4;
+    if(cart){
+      console.log('You have items in your cart.');
+    }
+
+    console.log('text'/5); // NaN is a falsy value
+    let varg;
+    console.log(varg); // undefined is a falsy value
+
+
+
+    // Short-circuit evaluation
+    const result=true?'truthy':'falsy';
+    console.log(result);
+
+    false && console.log('hello');
+
+    const message='heloo' && 0;
+    console.log(message);
+
+    const currency='Eur' || 'USD';
+    console.log(currency);
+
+    const currency2='' || 'USD';
+    console.log(currency2);
+
+  </script>
+</body>
+</html>
