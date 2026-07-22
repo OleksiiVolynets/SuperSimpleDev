@@ -1,4 +1,4 @@
-
+const cartQuantityElement = document.querySelector('.js-cart-quantity');
 let productsHTML=''
 products.forEach((product)=>{
   productsHTML+=`<div class="product-container">
@@ -55,8 +55,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((btn) => {
   btn.addEventListener('click',() => {
     const{ productId } = btn.dataset;
     checkCart(productId);
-    console.log(cart)
-    
+    cartQuantityElement.innerHTML=cartTotalQuantity();
   })
 })
 function checkCart(productId) {
@@ -68,5 +67,5 @@ function checkCart(productId) {
   cart.push({
     productId,
     quantity: 1}
-  )
+  );
 }
