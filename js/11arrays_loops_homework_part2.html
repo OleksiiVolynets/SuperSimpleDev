@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+    function searchWord(array,word){
+      for(let i=0;i<array.length;i++){
+        if(array[i]===word){
+          return i;
+        }
+      }
+      return -1;
+    }
+    console.log(searchWord(['green','yellow','blue','blue','green'],'red'));
+
+    function removeWord(food,word){
+      let i=0;
+      let items=0;
+      food.reverse();
+      while(i< food.length){
+        if(items===2){
+          break;
+
+        }
+        if(food[i]===word){
+          items++;
+          food.splice(i,1)
+          continue
+        }
+        i++;
+      }
+      return food.reverse();
+    }
+
+    console.log(removeWord(['egg','apple','apple','ham','biscuit','apple'],'apple'))
+
+    for(let i=1;i<=20;i++){
+      if(i%3===0 && i%5===0){
+        console.log('FizzBuzz')
+      }
+      else if(i%3===0){
+        console.log('Fizz')
+      }
+      else if(i%5===0){
+        console.log('Buzz')
+      }
+      else{console.log(i)}
+    }
+    let array=['green','red','blue','blue','green','green','red']
+    function unique(items){
+      let dublicates=[];
+      for(let i=0;i<items.length;i++){
+        let res=0;
+        for(let j=0;j<dublicates.length;j++){
+          if(items[i]===dublicates[j]){
+            res++;
+            break;
+          }
+
+        }
+        if(res===0){
+        dublicates.push(items[i])}
+      }
+      return dublicates;
+    }
+    console.log(unique(array))
+  </script>
+</body>
+</html>

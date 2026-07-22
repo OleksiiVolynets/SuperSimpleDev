@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+    const weeklyCalories = [2400, 2650, 2100, 2800, 2350, 3100, 2200]
+    let totallyWeeklyCalories=0;
+    const exceededDays=[];
+    for(let i=0;i<weeklyCalories.length;i++){
+      totallyWeeklyCalories+=weeklyCalories[i];
+      if(weeklyCalories[i]>=2500){
+        exceededDays.push(weeklyCalories[i]);
+      }
+    }
+    console.log(totallyWeeklyCalories,exceededDays);
+  </script>
+</body>
+</html>

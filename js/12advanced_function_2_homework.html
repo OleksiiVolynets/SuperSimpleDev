@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // const multiply=(a,b)=>a*b;
+    // console.log(multiply(7,10))
+
+    // function countPositives(array){
+    //   let count=0;
+    //   array.forEach((value)=>{
+    //     if(value>0){
+    //       count++;
+    //     }
+    //   })
+    //   return count;
+
+    // }
+    // console.log(countPositives([-2,-3,-7,-8,-9,6,3,-6]))
+
+    // function addNum(array,num){
+    //   const newAr=array.map((value)=>value+=num
+    //   )
+    // return newAr;
+
+    // }
+    // console.log(addNum([-2,-3,-7,-8,-9,6,3,-6],8));
+
+    function removeItem(array,item){
+      let count=0;
+      const newAr=array.filter((value)=>{
+        if(value===item&&count<2){
+          count++;
+          return false;
+        }
+        return true;
+      });
+      return newAr;
+    }
+    console.log(removeItem(['apple','cat','green','cat','apple','cat'],'cat'))
+  </script>
+</body>
+</html>

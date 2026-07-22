@@ -1,0 +1,115 @@
+*{
+  font-family:Arial;
+  font-weight:bold;
+}
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color: rgb(85, 85, 85);
+}
+.meal-history{
+  border-radius: 20px;
+  width:700px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  background-color: rgb(46, 46, 46);
+}
+.history-title{
+  font-size:25px;
+  color:rgb(38, 180, 180);
+}
+.cards-wrapper{
+  width:100%;
+  display:flex;
+  gap:15px;
+  align-items: center;
+}
+.card-item{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  gap:10px;
+  box-shadow: 0 0 9px rgba(255,255,255,0.3);
+  transition:box-shadow 0.15s, transform 0.15s;
+  border-radius:15px;
+  overflow: hidden;
+  padding-bottom:10px;
+}
+.card-item:hover{
+  box-shadow: 0 0 12px rgb(62, 190, 190);
+  transform:scale(1.1)
+}
+.card-photo{
+  height:70px;
+  width:100%;
+  object-fit: cover;
+  object-position: center;
+}
+.card-item-title{
+  font-size:18px;
+  color:white;
+}
+.macros{
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  align-items: center;
+  padding:0 5px;
+  box-sizing: border-box;
+}
+.macros-item{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.macros-number{
+  font-size:14px;
+}
+.macros-title{
+  font-weight: lighter;
+  font-size:12px;
+}
+.macros-calories{
+  color:rgb(156, 156, 156);
+}
+.macros-carbs{
+  color:rgb(62, 190, 190);
+}
+.macros-protein{
+  color:rgb(201, 67, 67);
+}
+.macros-fats{
+  color:rgb(179, 179, 48);
+}
+.description{
+  font-size:16px;
+  color:white;
+  padding:0 10px;
+}
+.history-button{
+  background-color:rgb(233, 63, 63);
+  color:white;
+  padding:14px 8px;
+  font-size:13px;
+  cursor:pointer;
+  border:none;
+  border-radius:8px;
+  align-self: stretch;
+  transition:opacity 0.15s;
+  margin: 0 10px;
+}
+.history-button:hover{
+  opacity:0.8;
+}

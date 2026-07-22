@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" ></script>
+  <script type="module">
+    import isSunSat from './date_homework_d.js'
+    const a=dayjs().add(5,'days')
+    console.log(a.format('MMMM D'))
+
+    const b=dayjs().add(1, 'month');
+    console.log(b.format('MMMM D'))
+    const c=dayjs().subtract(1, 'month');
+    console.log(c.format('MMMM D'))
+    const d=dayjs();
+    console.log(d.format('dddd'));
+
+
+
+   
+    isSunSat(d.format('dddd'));
+
+
+
+
+
+    
+  </script>
+</body>
+</html>

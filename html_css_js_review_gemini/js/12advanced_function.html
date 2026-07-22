@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    const meals = [
+      { name: 'Oatmeal', calories: 300, isVegan: true },
+      { name: 'Chicken', calories: 400, isVegan: false },
+      { name: 'Apple', calories: 50, isVegan: true },
+      { name: 'Beef', calories: 600, isVegan: false },
+      { name: 'Banana', calories: 100, isVegan: true }
+    ];
+    function getBigVeganMeals(dietArray){
+      return dietArray.filter((item)=>item.isVegan && item.calories>100
+      ).map((item)=>item.name.toUpperCase()
+      )
+    }
+    console.log(getBigVeganMeals(meals))
+  </script>
+</body>
+</html>

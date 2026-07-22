@@ -1,0 +1,44 @@
+.meal-log-item{
+  display:flex;
+  padding:12px 9px;
+  background-color:rgb(71, 71, 71) ;
+  border:none;
+  border-radius: 15px;
+  width:380px;
+  gap:12px;
+  flex-direction: column;
+  font-weight:bold;
+  font-family:Arial;
+  color:white;
+
+}
+.title{
+
+  font-size:23px;
+}
+.macros{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+}
+.protein{
+  color:rgb(201, 67, 67);
+}
+.carbs{
+  color:rgb(62, 190, 190);
+}
+.fats{
+  color:rgb(179, 179, 48);
+}
+.description{
+  font-size:16px;
+  line-height:22px;
+}
+.meal-time{
+  color:red;
+  transition: text-decoration 0.3s;
+}
+.meal-time:hover{
+  text-decoration: underline;
+  cursor:pointer;
+}

@@ -1,0 +1,62 @@
+.main{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(156, 156, 156);
+}
+.pricing-card{
+  flex-direction:column;
+  display:flex;
+  box-sizing: border-box;
+  padding:20px 14px;
+  background-color:rgb(255, 255, 255);
+  justify-content: center;
+  align-items:center;
+  border-radius:15px;
+  gap:10px;
+}
+.card-title{
+  font-size:32px;
+  color:rgb(2, 245, 192);
+  margin-bottom:5px;
+}
+.price{
+  color:rgb(46, 194, 90);
+}
+.buttons{
+  display:flex;
+  justify-content: space-between;
+  gap:25px;
+}
+.price-button{
+  padding:15px 7px;
+  border-radius:10px;
+  font-weight:bold;
+  font-size:15px;
+  transition:opacity 0.3s;
+}
+.subscribe-button{
+  background-color: rgb(250, 55, 55);
+  color:white;
+  border:none
+}
+.learn-more-button{
+  color:rgb(11, 243, 61);
+  border:2px solid rgb(11, 243, 61);
+}
+.information{
+  color:rgb(43, 165, 79);
+  
+}
+.cancel-link{
+  text-decoration: none;
+  color:red;
+}
+.price-button:hover{
+  opacity:0.8;
+}

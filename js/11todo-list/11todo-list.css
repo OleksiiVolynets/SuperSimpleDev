@@ -1,0 +1,27 @@
+.input{
+  padding:7px 8px;
+  font-size:15px;
+  height:30px;
+  box-sizing: border-box;
+}
+.add-button,.delete-button{
+  padding:7px 20px;
+  font-size:15px;
+  border:none;
+  background-color:green;
+  height:30px;
+  cursor:pointer;
+  color:white;
+  
+}
+.grid-el{
+  display:grid;
+  grid-template-columns: 200px 150px 100px;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items:center;
+  
+}
+.delete-button{
+  background-color: red;
+}

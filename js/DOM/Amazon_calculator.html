@@ -28,6 +28,9 @@
       display:flex;
       align-items: center;
     }
+    .display-price{
+      color:red;
+    }
   </style>
 </head>
 <body>
@@ -44,7 +47,7 @@
 
 
   <script>
-
+    const message=document.querySelector('.display-price');
     function costKeyDown(event){
       if(event.key==='Enter'){
       displayPrice()
@@ -52,8 +55,12 @@
     }
     function displayPrice(){
       let number=Number(document.querySelector('.input-price').value)
-      const message=document.querySelector('.display-price')
-      if(number>=40){
+      message.classList.remove('display-price')
+      if(number<0){
+        message.classList.add('display-price')
+        message.innerHTML=`Error:The price can't be less than 0`
+      }
+      else if(number>=40){
         message.innerHTML=`$${number}`
       }
       else{

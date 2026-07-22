@@ -1,0 +1,51 @@
+.overlay{
+  background-color: rgb(122, 121, 121);
+  display:flex;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  align-items:center;
+  justify-content:center;
+
+
+}
+.main{
+  background-color:rgb(75, 75, 75);
+  color:white;
+  font-family:Arial;
+  display:flex;
+  width:300px;
+  padding:12px 10px;
+  flex-direction:column;
+  align-items: center;
+  gap:10px;
+  border-radius: 20px;
+}
+.title{
+  font-size:23px;
+  font-weight: bold;
+}
+.buttons-div{
+  width:100%;
+  display:flex;
+  gap:30px;
+  justify-content: center;
+
+}
+.btn{
+  background-color: rgb(46, 46, 46);
+  color:white;
+  font-weight:bold;
+  font-size:14px;
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  transition:box-shadow 0.15s, transform 0.15s;
+
+}
+.btn:hover{
+  box-shadow: 0 0 6px rgb(243, 226, 226);
+  transform: scale(1.15);
+}

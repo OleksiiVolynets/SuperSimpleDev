@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="calories_counter.css">
+</head>
+<body>
+  <div class="overlay">
+  <form class="main" id="js-calc-form">
+  <img src="../../html/img/gym.jpg" alt="Alex" class="photo">
+  <div class="title">Daily Limit Calories</div>
+  
+  <div class="macros">
+    <div class="macros-item macros-item-calories">
+      <div class="macros-item-number js-number-calories">0</div>
+      <div class="macros-item-title">Calories</div>
+    </div>
+    <div class="macros-item macros-item-protein">
+      <div class="macros-item-number js-number-protein">0</div>
+      <div class="macros-item-title">Protein</div>
+    </div>
+    <div class="macros-item macros-item-carbs">
+      <div class="macros-item-number js-number-carbs">0</div>
+      <div class="macros-item-title">Carbs</div>
+    </div>
+    <div class="macros-item macros-item-fats">
+      <div class="macros-item-number js-number-fats">0</div>
+      <div class="macros-item-title">Fats</div>
+    </div>
+  </div>
+
+  <label class="calories-plan">
+    <span class="calories-plan-title">Calorie Plan</span>
+    <select name="plan" id="js-calorie-plan" required>
+      <option value="" disabled selected>Choose option</option>
+      <option value="lose-weight">Lose Weight</option>
+      <option value="gain-weight">Gain Weight</option>
+    </select>
+  </label>
+
+  <div class="required-information">
+    
+    <label class="item">
+      <span class="item-title">Age</span>
+      <input type="number" name="age" class="input-number js-input-age" placeholder="Enter age" min="10" max="99" required>
+    </label>
+
+    <label class="item">
+      <span class="item-title">Height</span>
+      <input type="number" name="height" class="input-number js-input-height" placeholder="Enter height" min="100" max="240" required>
+    </label>
+
+    <label class="item">
+      <span class="item-title">Weight</span>
+      <input type="number" name="weight" class="input-number js-input-weight" placeholder="Enter weight" min="40" max="250" required>
+    </label>
+
+    <label class="item">
+      <span class="item-title">Gender</span>
+      <select name="gender" id="js-gender" required>
+        <option value="" disabled selected>Choose option</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </label>
+
+    <label class="item">
+      <span class="item-title">Activity Level</span>
+      <select name="activity" id="js-activity" required>
+        <option value="" disabled selected>Choose option</option>
+        <option value="1.2">Sedentary</option>
+        <option value="1.375">Light Activity</option>
+        <option value="1.55">Moderately Active</option>
+        <option value="1.725">Very Active</option>
+        <option value="1.9">Extra Active</option>
+      </select>
+    </label>
+    
+  </div>
+
+  <div class="submit-button-div">
+    <button type="submit" class="btn submit-button js-submit-button">Submit</button>
+    <button type="button" class="btn js-clear-button clear-button">Clear</button>
+  </div>
+</form>
+  </div>
+  <script src="calories_counter.js"></script>
+</body>
+</html>

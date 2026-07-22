@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+  const dailyLog = [
+    { name: 'Oatmeal', calories: 300, type: 'carbs' },
+    { name: 'Chicken Breast', calories: 400, type: 'protein' },
+    { name: 'Almonds', calories: 250, type: 'fats' },
+    { name: 'Rice', calories: 200, type: 'carbs' },
+    { name: 'Eggs', calories: 150, type: 'protein' }
+  ];
+  function countMacros(mealArray){
+    const macros={};
+    let totalCalories=0;
+    for(let i=0;i<mealArray.length;i++){
+      totalCalories+=mealArray[i].calories
+      console.log(totalCalories)
+      if(mealArray[i].type in macros){
+        macros[mealArray[i].type]+=mealArray[i].calories
+      }
+      else{
+        macros[mealArray[i].type]=mealArray[i].calories
+      }
+    }
+    macros.totalCalories=totalCalories;
+    return macros;
+  }
+  const a=countMacros(dailyLog);
+  console.log(a)
+
+
+  </script>
+</body>
+</html>

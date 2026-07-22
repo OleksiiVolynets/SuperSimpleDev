@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products List</title>
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <div class="overlay">
+    <form class="main" id="products-main">
+      <h2 class="title">Products List</h2>
+      <div class="user-info">
+        <label class="info">
+          <span class="info-title">Product</span>
+          <input type="text" name="product-name" class="info-input" placeholder="Enter products" required>
+        </label>
+
+        <label class="info">
+          <span class="info-title">Calories</span>
+          <input type="number" name="product-calories" class="info-input" placeholder="Enter calories" required min="1" max="10000">
+        </label>
+
+        <button class="add-button btn" type="submit">Add</button>
+
+      </div>
+      
+      <div class="js-list-div list-main">
+
+      </div>
+    </form>
+  </div>
+
+  <script src="products.js"></script>
+</body>
+</html>

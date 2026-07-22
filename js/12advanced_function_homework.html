@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="js-button-start">Start</button> 
+
+  <button class="js-cart-button">Add to cart</button>
+  <p class="js-display"></p>
+
+  <button class="js-add-button">Add</button>
+  <button class="js-remove-button">Remove</button>
+
+  <script>
+
+    const add=()=>{
+      console.log(2+3);
+    }
+    add();
+    add();
+
+    function runTwice(param){
+      param();
+      param();
+    }
+    runTwice(()=>{
+      console.log('run twice')
+    })
+    runTwice(add);
+
+
+    const butt=document.querySelector('.js-button-start')
+    butt.addEventListener('click',()=>{
+      finish()
+    })
+    function finish(){
+      butt.innerHTML='Loading...'
+      setTimeout(function(){
+        butt.innerHTML='Finished!'
+      },1000)
+    }
+
+
+    const paragraphDisp=document.querySelector('.js-display');
+    document.querySelector('.js-cart-button').addEventListener('click',()=>{
+      added();
+    })
+    let index;
+    function added(){
+      clearTimeout(index);
+
+      paragraphDisp.innerHTML='Added';
+      index=setTimeout(()=>{
+        paragraphDisp.innerHTML='';
+      },2000)
+    }
+
+    document.querySelector('.js-add-button').addEventListener('click',()=>{
+      upateMessage(1)
+    })
+     document.querySelector('.js-remove-button').addEventListener('click',()=>{
+      upateMessage(-1)
+    })
+    let message=2;
+    let IntervalID;
+    function updateMessage(a){
+      message+=a
+      if(message<=0){
+        message=0;
+        clearInterval(IntervalID);
+        document.title='Document';
+      }
+      else{
+          clearInterval(IntervalID);
+
+          IntervalID=setInterval(()=>{
+
+          if(document.title==='Document'){
+          document.title=`${message} new messages`
+          }
+          else{
+          document.title='Document'
+          }
+        },1000)
+
+      }
+    }
+    
+
+    // IntervalID=setInterval(function(){
+
+    //   if(document.title==='Document'){
+    //     document.title=`${message} new messages`
+    //   }
+    //   else{
+    //   document.title='Document'
+    //   }
+    // },1000)
+  </script>
+</body>
+</html>

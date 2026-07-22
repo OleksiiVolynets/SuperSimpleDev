@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="" class="js-button">Click</button>
+
+  <script>
+    // const arrowfunc=(name)=>{
+    //   console.log(`Hello ${name}`)
+    // }
+    // arrowfunc('Alex');
+
+    // const oneParam=(param)=>{
+    //   console.log(param+1)
+    // }
+    // oneParam(6);
+    //shortcut is 
+    // const oneParam=param=>{
+    //   console.log(param+1)
+    // }
+    // oneParam(6); 
+    // we don't use () for only one parametr;
+
+    // const oneLine=()=>{return 2+3}
+    //shortcut is
+    //if we have only one line of code we can do this
+    //const oneLine=()=>2+3;
+
+    //Practical example
+    // ['hello','привіт','cseść'].forEach((value)=>{
+    //   console.log(value)
+    // })
+    // const buttonEl=document.querySelector('.js-button');
+    // const eventListener=()=>{
+    //   console.log('Click')
+    // }
+    // buttonEl.addEventListener('click',eventListener);
+    // buttonEl.removeEventListener('click',eventListener)
+    // buttonEl.addEventListener('click',()=>{
+    //   console.log('Click2')
+    // });
+
+    [1,-3,5].filter((value,index)=>{
+      // if(value>=0){
+      //   return true;
+      // }
+      // return false;
+      return value>=0;
+    });
+
+    console.log([1,1,3].map((value)=>{
+      return value*2;
+    }))
+
+    //shortcut
+     console.log([1,1,3].map((value)=>value*2))
+
+
+  </script>
+</body>
+</html>

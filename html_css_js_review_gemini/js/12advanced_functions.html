@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="js-btn">Save Meals</button>
+  <p class="js-status-text"></p>
+
+
+
+
+  <script>
+    const unsavedMeals = ['Oatmeal', 'Chicken Breast', 'Rice', 'Almonds'];
+    const btn=document.querySelector('.js-btn')
+    const paragraph=document.querySelector('.js-status-text')
+    btn.addEventListener('click',()=>{
+      btn.innerText='Saving...'
+      btn.disabled=true;
+      let intervalId=setInterval(()=>{
+        paragraph.innerText+='.'
+        if(paragraph.innerText==='....'){
+          paragraph.innerText='';
+        }
+      },500)
+      setTimeout(()=>{
+        clearInterval(intervalId);
+         paragraph.innerText='';
+         unsavedMeals.forEach((item)=>{
+          console.log(`Saved: ${item}`)
+         })
+         btn.innerText='Done!'
+         setTimeout(()=>{
+          btn.innerText='Save Meals';
+          btn.disabled=false;
+         },2000)
+      },3000)
+    })
+  </script>
+</body>
+</html>

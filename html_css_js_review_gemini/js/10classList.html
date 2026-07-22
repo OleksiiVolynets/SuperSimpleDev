@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main{
+      display:flex;
+      width:300px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .boot-size{
+      color:black;
+      background-color: rgb(165, 165, 165);
+      padding:12px;
+      font-size:14px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+    .selected{
+      font-weight:bold;
+      color:white;
+      background-color: rgb(241, 90, 90);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="main">
+    <button class="boot-size">41</button>
+    <button class="boot-size">42</button>
+    <button class="boot-size">43</button>
+    <button class="boot-size">44</button>
+
+  </div>
+  
+  
+
+  
+
+  
+  <script>
+    function turnOFFBTN(){
+      const btn=document.querySelector('.selected');
+      if(btn){
+        btn.classList.remove('selected');
+      }
+    }
+    document.querySelectorAll('.boot-size').forEach((item)=>{
+      item.addEventListener('click',()=>{
+        if(item.classList.contains('selected')){
+          item.classList.remove('selected')
+        }
+        else{
+          turnOFFBTN();
+          item.classList.add('selected')
+        }
+      })
+    })
+  </script>
+</body>
+</html>

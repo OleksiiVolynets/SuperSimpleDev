@@ -1,0 +1,114 @@
+.overlay{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:rgb(44, 44, 44);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Arial;
+  font-weight:bold;
+}
+.daily-goal{
+  width:430px;
+  padding:20px;
+  background-color: rgb(80, 80, 80);
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  gap:10px;
+  font-family: Arial;
+}
+.photo{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:50%;
+}
+.title{
+  font-size:40px;
+  color:rgb(38, 180, 180);
+}
+.macro-inputs{
+  display:flex;
+  align-items: center;
+  gap:10px;
+  width:100%;
+}
+.macros-item{
+  flex:1;
+  display:flex;
+  flex-direction:column ;
+  align-items:center;
+  gap:10px;
+}
+.macros-input{
+  width:100%;
+  box-sizing: border-box;
+}
+.macros-item-label{
+  font-size:16px;
+  font-weight: bold;
+}
+.protein-label{
+  color:rgb(201, 67, 67);
+}
+.carbs-label{
+  color:rgb(62, 190, 190);
+}
+.fats-label{
+  color:rgb(179, 179, 48);
+}
+
+.macros-input,.daily-limit-input{
+  background-color: rgb(56, 56, 56);
+  border:none;
+  color:white;
+  font-weight:bold;
+  padding:7px;
+  border-radius: 10px;
+}
+.macros-input:focus,.daily-limit-input:focus{
+  outline:2px solid rgb(38, 180, 180);
+}
+.macros-input::placeholder,.daily-limit-input::placeholder{
+  color:rgb(49, 109, 109);
+  text-align:center;
+}
+.daily-limit-input{
+  width:100%;
+  box-sizing: border-box;
+}
+.btn-flexbox{
+  display:flex;
+  align-items: center;
+  gap:30px;
+}
+.daily-goal-btn{
+  padding: 8px 14px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:box-shadow 0.3s,transform 0.3s;
+  border:none;
+  border-radius:8px;
+  background-color: transparent;
+}
+.daily-goal-btn:hover{
+  transform:scale(1.1)
+}
+.save-btn{
+  color:rgb(89, 197, 89)
+  
+}
+.save-btn:hover{
+  box-shadow:0 0 6px rgb(89, 197, 89);
+}
+.skip-btn{
+  color:rgb(182, 194, 182)
+  
+}
+.skip-btn:hover{
+  box-shadow:0 0 6px rgb(182, 194, 182);
+}

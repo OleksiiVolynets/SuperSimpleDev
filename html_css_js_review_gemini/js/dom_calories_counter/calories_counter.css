@@ -1,0 +1,166 @@
+*{
+  font-family:Arial;
+  font-weight: bold;
+}
+.overlay{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: rgb(85, 85, 85);
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.main{
+  width:700px;
+  display:flex;
+  background-color: rgb(46, 46, 46);
+  flex-direction:column;
+  gap:10px;
+  padding:15px;
+  align-items:center;
+  border-radius:20px;
+}
+.photo{
+  width:90px;
+  height:90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.title{
+  font-size:40px;
+  color:rgb(38, 180, 180);
+}
+.calories-plan{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:center;
+  width:100%;
+}
+.calories-plan-title{
+  font-size:30px;
+  color:white;
+}
+.required-information{
+  width:100%;
+  display:flex;
+  gap:20px;
+}
+.item{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  gap:5px;
+}
+.item-title{
+  color:white;
+}
+.input-number{
+  width:100%;
+  padding:4px 7px;
+  box-sizing: border-box;
+  outline: none;
+  background-color: rgb(80, 79, 79);
+  border-radius:8px;
+  border:none;
+  color: white; /* Білий текст */
+  font-size: 16px;
+}
+.input-number:focus{
+  outline: 2px solid rgb(38, 180, 180) ;
+}
+.input-number::placeholder{
+  color:rgb(27, 133, 133);
+  text-align: center;
+}
+.submit-button-div{
+  width:100%;
+  padding:5px 20px;
+  box-sizing: border-box;
+  display:flex;
+  gap:20px;
+
+}
+.btn{
+  flex:1;
+  padding:10px;
+  font-size:27px;
+  color:white;
+  background-color: rgb(221, 96, 96);
+  border-radius: 10px;
+  border:none;
+  cursor:pointer;
+}
+.submit-button{
+  background-color: rgb(221, 96, 96);
+
+}
+.clear-button{
+  background-color: rgb(64, 190, 64);
+}
+.btn:hover{
+  box-shadow: 0 0 12px white;
+}
+.macros{
+  display:flex;
+  justify-content: space-around;
+  width:100%;
+}
+.macros-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.macros-item-number{
+  font-size:22px;
+}
+.macros-item-title{
+  font-size:14px;
+}
+.macros-item-calories{
+  color:white;
+}
+.macros-item-carbs{
+  color:rgb(62, 190, 190);
+}
+.macros-item-protein{
+  color:rgb(201, 67, 67);
+}
+.macros-item-fats{
+  color:rgb(179, 179, 48);
+}
+.submit-button-mistake{
+  color:rgb(230, 61, 61)
+}
+select {
+  /* 1. ВБИВАЄМО ДЕФОЛТ */
+  appearance: none;
+  -webkit-appearance: none; /* Для старих Safari */
+  -moz-appearance: none; /* Для старих Firefox */
+
+ 
+  background-color: rgb(80, 79, 79);
+  color: white; /* Білий текст */
+  font-size: 14px;
+  padding: 4px 40px 4px 7px; /* Залишаємо місце справа (40px) для нової стрілки */
+  border: 1px solid #555;
+  border-radius: 8px; /* Округлі кути, як у твоїх input */
+  cursor: pointer;
+  outline: none; /* Прибираємо стандартну синю рамку при кліку */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%; /* Або будь-яка інша ширина */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%; /* Ставимо її справа по центру */
+  background-size: 12px auto; /* Розмір стрілочки */
+}
+#js-calorie-plan{
+  text-align: center;
+}
+select:focus {
+  outline: 2px solid rgb(38, 180, 180) ;
+}

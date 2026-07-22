@@ -1,0 +1,65 @@
+.macros-panel{
+  display:flex;
+  width:400px;
+  padding:16px 12px;
+  background-color: rgb(71, 71, 71);
+  border:none;
+  border-radius: 15px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.macros-item{
+  display:flex;
+  flex-direction: column;
+  gap:14px;
+  align-items: center;
+
+}
+.carbs-title{
+  font-size:22px;
+  color:rgb(62, 190, 190);
+}
+.protein-title,.fats-title{
+  font-size:16px;
+}
+.protein-title{
+  color:rgb(201, 67, 67)
+}
+.fats-title{
+  color:rgb(179, 179, 48)
+}
+.macros-button{
+  padding:10px 12px;
+  background-color: rgb(102, 102, 102);
+  cursor:pointer;
+  border:none;
+  border-radius:10px;
+  font-family: Arial;
+  font-weight:bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.macros-button:hover{
+  transform: scale(1.12);
+}
+.macros-button:active{
+  box-shadow:none;
+  transform:scale(0.95);
+}
+.protein-button{
+  color:rgb(201, 67, 67);
+}
+.carbs-button{
+  color:rgb(62, 190, 190);
+}
+.fats-button{
+  color:rgb(179, 179, 48);
+}
+.protein-button:hover{
+  box-shadow: 3px 3px 5px rgb(201, 67, 67);
+}
+.carbs-button:hover{
+  box-shadow: 3px 3px 5px rgb(62, 190, 190);
+}
+.fats-button:hover{
+  box-shadow: 3px 3px 5px rgb(179, 179, 48);
+}

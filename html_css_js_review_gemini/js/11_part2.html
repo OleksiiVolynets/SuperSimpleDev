@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const myArray=['Chicken', 'Rice', 'Cola', 'Salad', 'Cola', 'Apple'];
+    function removeItem(array,word){
+      let newArray=[]
+      for(let i=0;i<array.length;i++){
+        if(array[i]!==word){
+          newArray.push(array[i])
+        }
+      }
+      return newArray;
+    }
+    console.log(removeItem(myArray,'Cola'))
+
+
+  </script>
+</body>
+</html>

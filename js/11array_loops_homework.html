@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    let nums=[10,20,30];
+    nums[2]=99
+    console.log(nums)
+
+
+    function getLastValue(a){
+      return a[a.length-1];
+    }
+    console.log(getLastValue(nums))
+    function reverse(a){
+      let b=[]
+      for(let i=a.length-1;i>=0;i--){
+        b.push(a[i])
+      }
+      return b;
+
+    }
+    console.log(reverse(nums));
+
+    for(let i=0;i<=10;i+=2){
+      console.log(i)
+    }
+     for(let i=5;i>=0;i--){
+      console.log(i)
+    }
+    let i=0;
+    while(i<=10){
+      console.log(i)
+      i+=2
+    }
+    let i4=5;
+    while(i4>=0){
+      console.log(i4)
+      i4--;
+    }
+
+    function addOne(a){
+      for(let i=0;i<=a.length-1;i++){
+        a[i]+=1;
+      }
+      return a;
+    }
+    console.log(addOne(nums));
+
+    function addnum(a,b){
+      for(let i=0;i<=a.length-1;i++){
+        a[i]+=b;
+      }
+      return a;
+    }
+    console.log(addnum(nums,7))
+    console.log(nums)
+
+    function addarrays(a,b){
+      const c=[];
+      if(a.length===b.length){
+        for(let i=0;i<=a.length-1;i++){
+          c[i]=a[i]+b[i];
+        }
+        return c;
+      }
+      else{
+        return;
+      }
+    }
+    let nums1=[2,8,9,10]
+    let nums2=[3,4,7]
+
+    console.log(addarrays(nums1,nums2));
+
+    function count_positives(a){
+      let result=0;
+      for(let i=0;i<a.length;i++){
+          if(a[i]>0){
+            result++
+
+          }
+        }
+      console.log(result)
+    }
+    count_positives(nums1,nums2);
+
+    function minMAX(a){
+      if(a.length===1){
+        return `min:${a[0]} max:${a[0]}`
+      }
+      if(a.length===0){
+        return `min:null max:null`
+      }
+      let min=a[0],max=a[0];
+      for(let i=0;i<a.length;i++){
+        if(a[i]<min){
+          min=a[i]}
+        if(a[i]>max){
+          max=a[i]
+        }
+      }
+      return `min:${min} max:${max}`
+    }
+    console.log(minMAX([3,7,9,-2,4]))
+    console.log(minMAX([]))
+    console.log(minMAX([3]))
+
+    function countWords(a){
+      let object={}
+      for(let i=0;i<a.length;i++){
+        const b=a[i];
+        if(b in object){
+          object[b]++
+        }
+        else{
+          object[b]+=1;
+        }
+      }
+      console.log(object)
+    }
+    countWords(['apple','grape','banana','apple'])
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    mealEntry={}
+    mealEntry.name='Fried Chicken with Rice'
+    mealEntry.calories=650;
+    mealEntry.macros={};
+    mealEntry.macros.carbs=3;
+    mealEntry.macros.protein=45;
+    mealEntry.macros.fats=15;
+    mealEntry['serving-size']='300g';
+    console.log(mealEntry)
+    console.log(mealEntry['serving-size'])
+    mealEntry.isCheatMeal=false;
+    mealEntry.calories=700;
+    mealEntry.getSummary=function(){
+      return `${this.name} ${this.calories}`
+    }
+    console.log(mealEntry)
+    console.log(mealEntry.getSummary())
+
+    let {name,macros}=mealEntry;
+    console.log(macros)
+    let dbData=JSON.stringify(mealEntry)
+    console.log(dbData)
+    let retrievedMeal=JSON.parse(dbData)
+    console.log(retrievedMeal)
+    console.log(retrievedMeal===mealEntry)
+    const meal={
+      number:34,
+      getinfo(){
+        return `${number}`
+      }
+    }
+    console.log(meal.getinfo())
+  </script>
+</body>
+</html>

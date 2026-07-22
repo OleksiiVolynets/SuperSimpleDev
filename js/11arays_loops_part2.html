@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+    const array1=[1,2,3];
+    const array2=array1.slice();
+    array2.push(4);
+    console.log(array1);
+
+
+    const [firstValue,secondValue]=[1,2,3];
+    console.log(firstValue,secondValue,"some text");
+
+    //loops
+    for(let i=0;i<=10;i++){
+      if(i%3===0){
+        continue
+      }
+      console.log(i)
+      if(i===8){
+        break;
+      }
+    }
+    let i=1;
+    while(i<=10){
+      if(i%3===0){
+        i++;
+        continue;
+      }
+      console.log(i);
+      i++;
+    }
+
+  </script>
+</body>
+</html>
