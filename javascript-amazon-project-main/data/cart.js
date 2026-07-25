@@ -7,3 +7,14 @@ export function cartTotalQuantity() {
   });
   return totalQuantity;
 }
+export function addToCart(productId,quantity) {
+  let matchItem = cart.find((item) => item.productId === productId);
+  if (matchItem) {
+    matchItem.quantity += quantity;
+    return;
+  }
+  cart.push({
+    productId,
+    quantity}
+  );
+}

@@ -1,9 +1,9 @@
-import {cart, cartTotalQuantity} from '../data/cart.js';
-import {products} from '../data/products.js'
+import {cart, cartTotalQuantity, addToCart} from '../data/cart.js';
+import {products} from '../data/products.js';
 const cartQuantityElement = document.querySelector('.js-cart-quantity');
-let productsHTML=''
-products.forEach((product)=>{
-  productsHTML+=`<div class="product-container">
+let productsHTML = '';
+products.forEach((product) => {
+  productsHTML += `<div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
               src="${product.image}">
@@ -15,14 +15,14 @@ products.forEach((product)=>{
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars*10}.png">
+              src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${((product.priceCents)/100).toFixed(2)}
+            $${((product.priceCents) / 100).toFixed(2)}
           </div>
 
           <div class="product-quantity-container">
@@ -52,11 +52,11 @@ products.forEach((product)=>{
           </button>
         </div>`
 });
-document.querySelector('.js-products-grid').innerHTML=productsHTML;
+document.querySelector('.js-products-grid').innerHTML = productsHTML;
 document.querySelectorAll('.js-add-to-cart').forEach((btn) => {
   let intervalId;
-  btn.addEventListener('click',() => {
-    const{ productId } = btn.dataset;
+  btn.addEventListener('click', () => {
+    const { productId } = btn.dataset;
     const quantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
     const cartMessage = document.querySelector(`.js-added-to-cart-${productId}`);
     cartMessage.classList.add('add-to-cart-message');
@@ -67,19 +67,9 @@ document.querySelectorAll('.js-add-to-cart').forEach((btn) => {
         cartMessage.classList.remove('add-to-cart-message');
       }, 2000);
     
-    checkCart(productId,quantity);
+    addToCart(productId, quantity);
     cartQuantityElement.innerHTML = cartTotalQuantity();
-  })
-})
-function checkCart(productId,quantity) {
-  let matchItem = cart.find((item) => item.productId === productId);
-  if (matchItem) {
-    matchItem.quantity +=quantity;
-    return;
-  }
-  cart.push({
-    productId,
-    quantity}
-  );
-}
+  });
+});
+
 
