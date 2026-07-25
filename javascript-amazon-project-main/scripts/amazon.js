@@ -1,6 +1,7 @@
-import {cart, cartTotalQuantity, addToCart} from '../data/cart.js';
+import {cart, cartTotalQuantity, addToCart, saveCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 const cartQuantityElement = document.querySelector('.js-cart-quantity');
+cartQuantityElement.innerHTML = cartTotalQuantity();
 let productsHTML = '';
 products.forEach((product) => {
   productsHTML += `<div class="product-container">

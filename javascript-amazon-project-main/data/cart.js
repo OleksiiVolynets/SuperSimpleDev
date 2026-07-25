@@ -1,4 +1,4 @@
-export const cart = [];
+export const cart = JSON.parse(localStorage.getItem('cart6')) || [];
 
 export function cartTotalQuantity() {
   let totalQuantity = 0;
@@ -17,4 +17,8 @@ export function addToCart(productId,quantity) {
     productId,
     quantity}
   );
+  saveCart();
+}
+export function saveCart() {
+  localStorage.setItem('cart6', JSON.stringify(cart));
 }
