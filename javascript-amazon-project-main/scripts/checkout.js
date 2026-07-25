@@ -1,6 +1,6 @@
 import { cart, cartTotalQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
-import { formatCurrency } from './utils/monej.js'
+import { formatCurrency } from './utils/money.js'
 const checkoutItemsNumber = document.querySelector('.js-return-to-home-link')
 checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
 
