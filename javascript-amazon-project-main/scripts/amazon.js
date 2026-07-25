@@ -1,4 +1,5 @@
-import {cart, cartTotalQuantity} from '../data/cart.js'
+import {cart, cartTotalQuantity} from '../data/cart.js';
+import {products} from '../data/products.js'
 const cartQuantityElement = document.querySelector('.js-cart-quantity');
 let productsHTML=''
 products.forEach((product)=>{
