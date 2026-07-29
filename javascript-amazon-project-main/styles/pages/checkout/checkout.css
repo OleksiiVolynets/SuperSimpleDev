@@ -118,7 +118,19 @@
 .product-quantity .link-primary {
   margin-left: 3px;
 }
-
+.quantity-input{
+  width: 30px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 6px rgb(90, 178, 236);
+  display: none;
+}
+.quantity-input:focus{
+  outline: 2px solid red;
+}
+.save-quantity-link{
+  display: none;
+}
 @media (max-width: 1000px) {
   .delivery-options {
     /* grid-column: 1 means this element will be placed
@@ -208,4 +220,16 @@
 
   margin-top: 11px;
   margin-bottom: 15px;
+}
+.is-editing-quantity .update-quantity-link{
+  display: none;
+}
+.is-editing-quantity .quantity-label{
+  display: none;
+}
+.is-editing-quantity .quantity-input{
+  display: inline-block;
+}
+.is-editing-quantity .save-quantity-link{
+  display: initial;
 }

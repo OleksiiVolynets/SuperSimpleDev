@@ -1,14 +1,17 @@
-import { cart, cartTotalQuantity, deleteFromCart } from '../data/cart.js';
+import { addToCart, cart, cartTotalQuantity, deleteFromCart, updateQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js'
+
+hello();
 const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
 checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
 const checkoutContainer = document.querySelector('.js-order-summary');
 function displayCheckOut() {
+  checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
   let checkoutItemsHTML = '';
   cart.forEach((cartItem) => {
     let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
-    checkoutItemsHTML += `<div class="cart-item-container">
+    checkoutItemsHTML += `<div class="cart-item-container js-cart-item-container">
               <div class="delivery-date">
                 Delivery date: Tuesday, June 21
               </div>
@@ -26,12 +29,16 @@ function displayCheckOut() {
                   </div>
                   <div class="product-quantity">
                     <span>
-                      Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                      Quantity: <span class="quantity-label js-quantity-label-${matchingItem.id}">${cartItem.quantity}</span>
                     </span>
-                    <span class="update-quantity-link link-primary">
+                    <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${matchingItem.id}">
                       Update
                     </span>
-                    <span class="delete-quantity-link link-primary js-delete-quantity-link " data-matching-item-id="${matchingItem.id}">
+                    <input class="quantity-input js-quantity-input-${matchingItem.id} js-quantity-input" type="number" data-product-id="${matchingItem.id}"> 
+                    <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingItem.id}">
+                      Save
+                    </span>
+                    <span class="delete-quantity-link link-primary js-delete-quantity-link" data-product-id="${matchingItem.id}">
                       Delete
                     </span>
                   </div>
@@ -90,11 +97,49 @@ displayCheckOut();
 
 checkoutContainer.addEventListener('click', (event) => {
   const deleteBtn = event.target.closest('.js-delete-quantity-link');
-
+  const updateBtn = event.target.closest('.js-update-quantity-link');
+  const saveBtn = event.target.closest('.js-save-quantity-link');
   if (deleteBtn) {
-    const { matchingItemId } = deleteBtn.dataset;
-    deleteFromCart(matchingItemId);
+    const { productId } = deleteBtn.dataset;
+    deleteFromCart(productId);
     displayCheckOut();
   }
+  if (updateBtn) {
+    const { productId } = updateBtn.dataset;
+    const currentQuantity = document.querySelector(`.js-quantity-label-${productId}`).innerHTML;
+    const itemContainer = updateBtn.closest(`.js-cart-item-container`);
+    itemContainer.classList.add('is-editing-quantity');
+    const quantityInput = document.querySelector(`.js-quantity-input-${productId}`)
+    quantityInput.value = currentQuantity;
+  }
+  if (saveBtn) {
+    const { productId } = saveBtn.dataset;
+    const quantityInput = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
+    if (quantityInput > 0 && quantityInput < 1000 ) {
+      updateQuantity(productId, quantityInput);
+      displayCheckOut();
+    }
+    else {
+      alert('Quantity should be higher than 0 and lower than 1000');
+    }
+    
+  }
+
 });
 
+checkoutContainer.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    const quantityInput = event.target.closest('.js-quantity-input');
+    if (quantityInput) {
+      const { productId } = quantityInput.dataset;
+      const newValue = Number(quantityInput.value);
+      if (newValue > 0 && newValue < 1000 ) {
+        updateQuantity(productId, newValue);
+        displayCheckOut();
+      }
+      else {
+        alert('Quantity should be higher than 0 and lower than 1000');
+      }
+    }
+  }
+});

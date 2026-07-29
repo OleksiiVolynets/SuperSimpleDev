@@ -11,18 +11,27 @@ export function addToCart(productId,quantity) {
   let matchItem = cart.find((item) => item.productId === productId);
   if (matchItem) {
     matchItem.quantity += quantity;
-    return;
+    
   }
-  cart.push({
-    productId,
-    quantity}
-  );
+  else{
+    cart.push({
+      productId,
+      quantity}
+    );
+  }
   saveCart();
 }
 export function deleteFromCart(id){
   
   cart=cart.filter(item => item.productId !== id);
   console.log(cart)
+  saveCart();
+}
+export function updateQuantity(productId,quantity) {
+  let matchItem = cart.find((item) => item.productId === productId);
+  if (matchItem) {
+    matchItem.quantity = quantity;
+  }
   saveCart();
 }
 export function saveCart() {
