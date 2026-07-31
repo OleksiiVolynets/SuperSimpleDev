@@ -1,16 +1,16 @@
 export const deliveryTime = [{
-  deliveryId:1,
+  deliveryId:'1',
   deliveryPriceCents:0,
   daysToDeliver:7
 
 },
 {
-  deliveryId:2,
+  deliveryId:'2',
   deliveryPriceCents:499,
-  daysToDeliver:5
+  daysToDeliver:3
 },
 {
-  deliveryId:3,
+  deliveryId:'3',
   deliveryPriceCents:999,
-  daysToDeliver:3
+  daysToDeliver:1
 }]

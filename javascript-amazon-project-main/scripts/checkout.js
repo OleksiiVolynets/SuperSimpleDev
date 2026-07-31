@@ -3,8 +3,7 @@ import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import { deliveryTime } from '../data/deliveryTime.js'
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js"
-console.log(dayjs().add(7, 'day'))
-function dateFormat(number){
+function dateFormat(number) {
   return dayjs().add(number, 'days').format('dddd, MMMM D');
 }
 const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
@@ -54,7 +53,7 @@ function displayCheckOut() {
 
     checkoutItemsHTML += `<div class="cart-item-container js-cart-item-container">
               <div class="delivery-date">
-                Delivery date: ${dateFormat(deliveryOption.daysToDeliver)}
+                Delivery date: ${dateFormat(selectedDeliveryOption .daysToDeliver)}
               </div>
 
               <div class="cart-item-details-grid">
@@ -164,8 +163,7 @@ checkoutContainer.addEventListener('click', (event) => {
     
   }
   if (dateInput) {
-    const { productId } = dateInput.dataset;
-    const deliveryOptionId = Number(dateInput.dataset.deliveryOptionId);
+    const { productId, deliveryOptionId } = dateInput.dataset;
     updateCartDelivery (productId, deliveryOptionId);
     displayCheckOut();
   }
