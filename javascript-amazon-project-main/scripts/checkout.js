@@ -1,19 +1,60 @@
-import { addToCart, cart, cartTotalQuantity, deleteFromCart, updateQuantity } from '../data/cart.js';
+import { addToCart, cart, cartTotalQuantity, deleteFromCart, updateQuantity, updateCartDelivery } from '../data/cart.js';
 import { products } from '../data/products.js';
-import { formatCurrency } from './utils/money.js'
-
-hello();
+import { formatCurrency } from './utils/money.js';
+import { deliveryTime } from '../data/deliveryTime.js'
+import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js"
+console.log(dayjs().add(7, 'day'))
+function dateFormat(number){
+  return dayjs().add(number, 'days').format('dddd, MMMM D');
+}
 const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
 checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
 const checkoutContainer = document.querySelector('.js-order-summary');
+const checkoutSummary = document.querySelector('.js-payment-summary')
+
+
 function displayCheckOut() {
+  console.log(cart)
   checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
   let checkoutItemsHTML = '';
+  let itemsPrice = 0;
+  let deliveryPrice = 0;
   cart.forEach((cartItem) => {
     let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
+    let selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
+    deliveryPrice += selectedDeliveryOption.deliveryPriceCents;
+    let deliveryOptionsHTML = '';
+    itemsPrice += matchingItem.priceCents * cartItem.quantity;
+    deliveryTime.forEach((deliveryOption) => {
+    const isChecked = deliveryOption.deliveryId === cartItem.deliveryOptionId ? 'checked' : '';
+    
+    const priceString = deliveryOption.deliveryPriceCents === 0
+      ? 'FREE Shipping'
+      : `$${formatCurrency(deliveryOption.deliveryPriceCents)} - Shipping`;
+
+    
+    deliveryOptionsHTML += `
+      <div class="delivery-option js-delivery-option" data-product-id="${matchingItem.id}" data-delivery-option-id="${deliveryOption.deliveryId}">
+        <input type="radio" 
+          ${isChecked}
+          class="delivery-option-input"
+          name="delivery-option-${matchingItem.id}">
+        <div>
+          <div class="delivery-option-date">
+            ${dateFormat(deliveryOption.daysToDeliver)}
+          </div>
+          <div class="delivery-option-price">
+            ${priceString}
+          </div>
+        </div>
+      </div>
+    `;})
+
+
+
     checkoutItemsHTML += `<div class="cart-item-container js-cart-item-container">
               <div class="delivery-date">
-                Delivery date: Tuesday, June 21
+                Delivery date: ${dateFormat(deliveryOption.daysToDeliver)}
               </div>
 
               <div class="cart-item-details-grid">
@@ -48,50 +89,47 @@ function displayCheckOut() {
                   <div class="delivery-options-title">
                     Choose a delivery option:
                   </div>
-                  <div class="delivery-option">
-                    <input type="radio" checked
-                      class="delivery-option-input"
-                      name="delivery-option-${ matchingItem.id }">
-                    <div>
-                      <div class="delivery-option-date">
-                        Tuesday, June 21
-                      </div>
-                      <div class="delivery-option-price">
-                        FREE Shipping
-                      </div>
-                    </div>
-                  </div>
-                  <div class="delivery-option">
-                    <input type="radio"
-                      class="delivery-option-input"
-                      name="delivery-option-${ matchingItem.id }">
-                    <div>
-                      <div class="delivery-option-date">
-                        Wednesday, June 15
-                      </div>
-                      <div class="delivery-option-price">
-                        $4.99 - Shipping
-                      </div>
-                    </div>
-                  </div>
-                  <div class="delivery-option">
-                    <input type="radio"
-                      class="delivery-option-input"
-                      name="delivery-option-${ matchingItem.id }">
-                    <div>
-                      <div class="delivery-option-date">
-                        Monday, June 13
-                      </div>
-                      <div class="delivery-option-price">
-                        $9.99 - Shipping
-                      </div>
-                    </div>
-                  </div>
+                  ${deliveryOptionsHTML}
                 </div>
               </div>
             </div>`
   })
   checkoutContainer.innerHTML = checkoutItemsHTML;
+  const totalBeforeTaxCents = itemsPrice + deliveryPrice;
+  const taxCents = totalBeforeTaxCents * 0.1;
+  const totalCents = totalBeforeTaxCents + taxCents;
+  checkoutSummary.innerHTML=`<div class="payment-summary-title">
+            Order Summary
+          </div>
+
+          <div class="payment-summary-row">
+            <div>Items (${cartTotalQuantity()}):</div>
+            <div class="payment-summary-money">$${formatCurrency(itemsPrice)}</div>
+          </div>
+
+          <div class="payment-summary-row">
+            <div>Shipping &amp; handling:</div>
+            <div class="payment-summary-money">$${formatCurrency(deliveryPrice)}</div>
+          </div>
+
+          <div class="payment-summary-row subtotal-row">
+            <div>Total before tax:</div>
+            <div class="payment-summary-money">$${formatCurrency(totalBeforeTaxCents)}</div>
+          </div>
+
+          <div class="payment-summary-row">
+            <div>Estimated tax (10%):</div>
+            <div class="payment-summary-money">$${formatCurrency(taxCents)}</div>
+          </div>
+
+          <div class="payment-summary-row total-row">
+            <div>Order total:</div>
+            <div class="payment-summary-money">$${formatCurrency((totalCents))}</div>
+          </div>
+
+          <button class="place-order-button button-primary">
+            Place your order
+          </button>`
 }
 displayCheckOut();
 
@@ -99,6 +137,7 @@ checkoutContainer.addEventListener('click', (event) => {
   const deleteBtn = event.target.closest('.js-delete-quantity-link');
   const updateBtn = event.target.closest('.js-update-quantity-link');
   const saveBtn = event.target.closest('.js-save-quantity-link');
+  const dateInput = event.target.closest('.js-delivery-option')
   if (deleteBtn) {
     const { productId } = deleteBtn.dataset;
     deleteFromCart(productId);
@@ -123,6 +162,12 @@ checkoutContainer.addEventListener('click', (event) => {
       alert('Quantity should be higher than 0 and lower than 1000');
     }
     
+  }
+  if (dateInput) {
+    const { productId } = dateInput.dataset;
+    const deliveryOptionId = Number(dateInput.dataset.deliveryOptionId);
+    updateCartDelivery (productId, deliveryOptionId);
+    displayCheckOut();
   }
 
 });

@@ -7,19 +7,26 @@ export function cartTotalQuantity() {
   });
   return totalQuantity;
 }
-export function addToCart(productId,quantity) {
+export function addToCart(productId, quantity) {
   let matchItem = cart.find((item) => item.productId === productId);
   if (matchItem) {
     matchItem.quantity += quantity;
-    
   }
   else{
     cart.push({
       productId,
-      quantity}
+      quantity,
+      deliveryOptionId:1
+    }
     );
   }
   saveCart();
+}
+export function updateCartDelivery(productId,deliveryOptionId){
+  let matchItem = cart.find((item) => item.productId === productId);
+  if (matchItem) {
+    matchItem.deliveryOptionId = deliveryOptionId;
+  }
 }
 export function deleteFromCart(id){
   
