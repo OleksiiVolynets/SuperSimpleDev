@@ -27,6 +27,7 @@ export function updateCartDelivery(productId,deliveryOptionId){
   if (matchItem) {
     matchItem.deliveryOptionId = deliveryOptionId;
   }
+  saveCart();
 }
 export function deleteFromCart(id){
   
