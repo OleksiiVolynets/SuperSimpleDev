@@ -1,14 +1,24 @@
-import { cartTotalQuantity } from '../../data/cart.js'
-import { formatCurrency } from '../utils/money.js'
+import { cartTotalQuantity, cart } from '../../data/cart.js'
+import { formatCurrency } from '../utils/money.js';
+import { products } from '../../data/products.js';
+import { deliveryTime } from '../../data/deliveryTime.js'
+
 
 
 const checkoutSummary = document.querySelector('.js-payment-summary');
 
-export function displayCheckoutSummary(itemsPrice, deliveryPrice){
-const totalBeforeTaxCents = itemsPrice + deliveryPrice;
-const taxCents = totalBeforeTaxCents * 0.1;
-const totalCents = totalBeforeTaxCents + taxCents;
-checkoutSummary.innerHTML=`<div class="payment-summary-title">
+export function displayCheckoutSummary(){
+  let itemsPrice = 0;
+  let deliveryPrice = 0;
+  cart.forEach((cartItem) => {
+      let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
+      let selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
+      deliveryPrice += selectedDeliveryOption.deliveryPriceCents;
+      itemsPrice += matchingItem.priceCents * cartItem.quantity;})
+  const totalBeforeTaxCents = itemsPrice + deliveryPrice;
+  const taxCents = totalBeforeTaxCents * 0.1;
+  const totalCents = totalBeforeTaxCents + taxCents;
+  checkoutSummary.innerHTML=`<div class="payment-summary-title">
     Order Summary
   </div>
 

@@ -14,17 +14,12 @@ const checkoutSummary = document.querySelector('.js-payment-summary')
 
 
 export function displayCheckOut() {
-  console.log(cart)
   checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
   let checkoutItemsHTML = '';
-  let itemsPrice = 0;
-  let deliveryPrice = 0;
   cart.forEach((cartItem) => {
     let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
     let selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
-    deliveryPrice += selectedDeliveryOption.deliveryPriceCents;
     let deliveryOptionsHTML = '';
-    itemsPrice += matchingItem.priceCents * cartItem.quantity;
     deliveryTime.forEach((deliveryOption) => {
     const isChecked = deliveryOption.deliveryId === cartItem.deliveryOptionId ? 'checked' : '';
     
@@ -54,7 +49,7 @@ export function displayCheckOut() {
 
     checkoutItemsHTML += `<div class="cart-item-container js-cart-item-container">
               <div class="delivery-date">
-                Delivery date: ${dateFormat(selectedDeliveryOption .daysToDeliver)}
+                Delivery date: ${dateFormat(selectedDeliveryOption.daysToDeliver)}
               </div>
 
               <div class="cart-item-details-grid">
@@ -95,7 +90,7 @@ export function displayCheckOut() {
             </div>`
   })
   checkoutContainer.innerHTML = checkoutItemsHTML;
-  displayCheckoutSummary(itemsPrice, deliveryPrice);
+  displayCheckoutSummary();
 }
 displayCheckOut();
 
