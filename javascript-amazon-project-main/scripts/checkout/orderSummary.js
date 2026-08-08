@@ -90,7 +90,6 @@ export function displayCheckOut() {
             </div>`
   })
   checkoutContainer.innerHTML = checkoutItemsHTML;
-  displayCheckoutSummary();
 }
 displayCheckOut();
 
@@ -103,6 +102,7 @@ checkoutContainer.addEventListener('click', (event) => {
     const { productId } = deleteBtn.dataset;
     deleteFromCart(productId);
     displayCheckOut();
+    displayCheckoutSummary();
   }
   if (updateBtn) {
     const { productId } = updateBtn.dataset;
@@ -118,6 +118,7 @@ checkoutContainer.addEventListener('click', (event) => {
     if (quantityInput > 0 && quantityInput < 1000 ) {
       updateQuantity(productId, quantityInput);
       displayCheckOut();
+      displayCheckoutSummary();
     }
     else {
       alert('Quantity should be higher than 0 and lower than 1000');
@@ -128,6 +129,7 @@ checkoutContainer.addEventListener('click', (event) => {
     const { productId, deliveryOptionId } = dateInput.dataset;
     updateCartDelivery (productId, deliveryOptionId);
     displayCheckOut();
+    displayCheckoutSummary();
   }
 
 });
@@ -141,6 +143,7 @@ checkoutContainer.addEventListener('keydown', (event) => {
       if (newValue > 0 && newValue < 1000 ) {
         updateQuantity(productId, newValue);
         displayCheckOut();
+        displayCheckoutSummary();
       }
       else {
         alert('Quantity should be higher than 0 and lower than 1000');

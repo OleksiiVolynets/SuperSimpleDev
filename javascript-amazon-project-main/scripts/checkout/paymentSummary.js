@@ -11,8 +11,8 @@ export function displayCheckoutSummary(){
   let itemsPrice = 0;
   let deliveryPrice = 0;
   cart.forEach((cartItem) => {
-      let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
-      let selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
+      const matchingItem = products.find( productItem => productItem.id === cartItem.productId);
+      const selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
       deliveryPrice += selectedDeliveryOption.deliveryPriceCents;
       itemsPrice += matchingItem.priceCents * cartItem.quantity;})
   const totalBeforeTaxCents = itemsPrice + deliveryPrice;
