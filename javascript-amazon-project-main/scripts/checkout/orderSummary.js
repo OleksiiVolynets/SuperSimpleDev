@@ -5,7 +5,16 @@ import { deliveryTime } from '../../data/deliveryTime.js';
 import { displayCheckoutSummary } from './paymentSummary.js'
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 function dateFormat(number) {
-  return dayjs().add(number, 'days').format('dddd, MMMM D');
+  let date = dayjs();
+  let daysToDeliver = 0;
+  while (number) { 
+    daysToDeliver++;
+    let weekDay = date.add(daysToDeliver, 'days').format('dddd');
+    if (weekDay  !== 'Saturday' && weekDay  !== 'Sunday'){
+      number--;
+    }
+  }
+  return dayjs().add(daysToDeliver, 'days').format('dddd, MMMM D');
 }
 const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
 checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
