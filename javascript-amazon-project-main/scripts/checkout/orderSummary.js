@@ -23,6 +23,7 @@ const checkoutSummary = document.querySelector('.js-payment-summary')
 
 
 export function displayCheckOut() {
+  console.log(cart, cart.length)
   checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
   let checkoutItemsHTML = '';
   cart.forEach((cartItem) => {
