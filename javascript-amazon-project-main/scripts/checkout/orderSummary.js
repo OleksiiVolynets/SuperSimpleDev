@@ -16,15 +16,15 @@ function dateFormat(number) {
   }
   return dayjs().add(daysToDeliver, 'days').format('dddd, MMMM D');
 }
-const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
-checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
-const checkoutContainer = document.querySelector('.js-order-summary');
-const checkoutSummary = document.querySelector('.js-payment-summary')
+
 
 
 export function displayCheckOut() {
-  console.log(cart, cart.length)
+  const checkoutContainer = document.querySelector('.js-order-summary');
+  const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
   checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
+  
+  console.log(cart, cart.length)
   let checkoutItemsHTML = '';
   cart.forEach((cartItem) => {
     let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
@@ -57,7 +57,7 @@ export function displayCheckOut() {
 
 
 
-    checkoutItemsHTML += `<div class="cart-item-container js-cart-item-container">
+    checkoutItemsHTML += `<div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingItem.id}">
               <div class="delivery-date">
                 Delivery date: ${dateFormat(selectedDeliveryOption.daysToDeliver)}
               </div>
@@ -73,7 +73,7 @@ export function displayCheckOut() {
                   <div class="product-price">
                     $${formatCurrency(matchingItem.priceCents)}
                   </div>
-                  <div class="product-quantity">
+                  <div class="product-quantity js-product-quantity-${matchingItem.id}">
                     <span>
                       Quantity: <span class="quantity-label js-quantity-label-${matchingItem.id}">${cartItem.quantity}</span>
                     </span>
@@ -84,7 +84,7 @@ export function displayCheckOut() {
                     <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingItem.id}">
                       Save
                     </span>
-                    <span class="delete-quantity-link link-primary js-delete-quantity-link" data-product-id="${matchingItem.id}">
+                    <span class="delete-quantity-link link-primary js-delete-quantity-link " data-product-id="${matchingItem.id}">
                       Delete
                     </span>
                   </div>
@@ -100,10 +100,8 @@ export function displayCheckOut() {
             </div>`
   })
   checkoutContainer.innerHTML = checkoutItemsHTML;
-}
-displayCheckOut();
 
-checkoutContainer.addEventListener('click', (event) => {
+  checkoutContainer.addEventListener('click', (event) => {
   const deleteBtn = event.target.closest('.js-delete-quantity-link');
   const updateBtn = event.target.closest('.js-update-quantity-link');
   const saveBtn = event.target.closest('.js-save-quantity-link');
@@ -161,3 +159,5 @@ checkoutContainer.addEventListener('keydown', (event) => {
     }
   }
 });
+}
+

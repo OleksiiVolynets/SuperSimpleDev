@@ -5,9 +5,10 @@ import { deliveryTime } from '../../data/deliveryTime.js'
 
 
 
-const checkoutSummary = document.querySelector('.js-payment-summary');
+
 
 export function displayCheckoutSummary(){
+  const checkoutSummary = document.querySelector('.js-payment-summary');
   let itemsPrice = 0;
   let deliveryPrice = 0;
   cart.forEach((cartItem) => {
