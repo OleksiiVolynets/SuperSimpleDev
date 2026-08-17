@@ -34,6 +34,7 @@ describe('test suite: displayCheckOut', () => {
     expect(document.querySelector(`.js-product-quantity-${productId1}`).innerText).toContain('Quantity: 4');
 
     expect(document.querySelector(`.js-product-quantity-${productId2}`).innerText).toContain('Quantity: 6');
+ 
 
   })
 
