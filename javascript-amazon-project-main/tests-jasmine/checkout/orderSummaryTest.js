@@ -34,6 +34,11 @@ describe('test suite: displayCheckOut', () => {
     expect(document.querySelector(`.js-product-quantity-${productId1}`).innerText).toContain('Quantity: 4');
 
     expect(document.querySelector(`.js-product-quantity-${productId2}`).innerText).toContain('Quantity: 6');
+
+    expect(document.querySelector(`.js-product-name-${productId1}`).innerText).toBe('Intermediate Size Basketball');
+    expect(document.querySelector(`.js-product-name-${productId2}`).innerText).toBe('2 Slot Toaster - Black');
+    expect(document.querySelector(`.js-cart-item-container-${productId1}`).querySelector('.product-price').innerText).toBe('$20.95');
+    expect(document.querySelector(`.js-cart-item-container-${productId2}`).querySelector('.product-price').innerText).toBe('$18.99')
  
 
   })
@@ -50,8 +55,8 @@ describe('test suite: displayCheckOut', () => {
     expect(cart.length).toBe(1)
     expect(cart[0].productId).toBe(productId2);
     expect(cart[0].quantity).toBe(6);
-
-
+    expect(document.querySelector(`.js-product-name-${productId2}`).innerText).toBe('2 Slot Toaster - Black')
+    expect(document.querySelector(`.js-cart-item-container-${productId2}`).querySelector('.product-price').innerText).toBe('$18.99')
      
   })
 

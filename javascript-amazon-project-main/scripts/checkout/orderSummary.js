@@ -67,7 +67,7 @@ export function displayCheckOut() {
                   src="${matchingItem.image}">
 
                 <div class="cart-item-details">
-                  <div class="product-name">
+                  <div class="product-name js-product-name-${matchingItem.id}" >
                     ${matchingItem.name}
                   </div>
                   <div class="product-price">
