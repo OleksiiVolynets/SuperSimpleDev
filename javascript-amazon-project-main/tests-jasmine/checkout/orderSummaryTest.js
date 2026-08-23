@@ -43,7 +43,7 @@ describe('test suite: displayCheckOut', () => {
 
   })
 
-  it('remove a product',() => {
+  it('remove a product', () => {
     
 
     document.querySelector(`.js-delete-quantity-link[data-product-id="${productId1}"]`).click();
@@ -58,6 +58,18 @@ describe('test suite: displayCheckOut', () => {
     expect(document.querySelector(`.js-product-name-${productId2}`).innerText).toBe('2 Slot Toaster - Black')
     expect(document.querySelector(`.js-cart-item-container-${productId2}`).querySelector('.product-price').innerText).toBe('$18.99')
      
+  });
+
+  it('Update deliveryDate', () => {
+
+    const dateInputPr1 = document.querySelector(`.js-delivery-option[data-product-id="${productId1}"][data-delivery-option-id="${'3'}"]`);
+    dateInputPr1.click();
+    expect(dateInputPr1.querySelector('input').checked).toBe(true);
+    expect(cart.length).toBe(2);
+    expect(cart[0].productId).toBe(productId1);
+    expect(cart[0].deliveryOptionId).toBe('3');
+    expect(document.querySelector('.js-shipping-payment-summary-money').innerText).toBe('$19.98');
+    expect(document.querySelector('.js-total-payment-summary-money').innerText).toBe('$239.49')
   })
 
   afterEach(() => {
