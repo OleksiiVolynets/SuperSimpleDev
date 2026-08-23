@@ -38,7 +38,6 @@ export function updateCartDelivery(productId,deliveryOptionId){
 export function deleteFromCart(id){
   
   cart=cart.filter(item => item.productId !== id);
-  console.log(cart)
   saveCart();
 }
 export function updateQuantity(productId,quantity) {
