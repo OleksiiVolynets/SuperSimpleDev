@@ -62,8 +62,9 @@ describe('test suite: displayCheckOut', () => {
 
   it('Update deliveryDate', () => {
 
-    const dateInputPr1 = document.querySelector(`.js-delivery-option[data-product-id="${productId1}"][data-delivery-option-id="${'3'}"]`);
+    let dateInputPr1 = document.querySelector(`.js-delivery-option[data-product-id="${productId1}"][data-delivery-option-id="${'3'}"]`);
     dateInputPr1.click();
+    dateInputPr1 = document.querySelector(`.js-delivery-option[data-product-id="${productId1}"][data-delivery-option-id="${'3'}"]`);
     expect(dateInputPr1.querySelector('input').checked).toBe(true);
     expect(cart.length).toBe(2);
     expect(cart[0].productId).toBe(productId1);
