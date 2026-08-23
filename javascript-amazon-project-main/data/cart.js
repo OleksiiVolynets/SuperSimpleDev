@@ -39,9 +39,8 @@ export function deleteFromCart(productId){
   let matchItem = cart.find((item) => item.productId === productId);
   if(matchItem) {
     cart=cart.filter(item => item.productId !== matchItem.productId);
-    saveCart();
   }
-  
+  saveCart();
 }
 export function updateQuantity(productId,quantity) {
   let matchItem = cart.find((item) => item.productId === productId);
