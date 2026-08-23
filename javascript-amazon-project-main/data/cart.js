@@ -35,10 +35,13 @@ export function updateCartDelivery(productId,deliveryOptionId){
   }
   saveCart();
 }
-export function deleteFromCart(id){
+export function deleteFromCart(productId){
+  let matchItem = cart.find((item) => item.productId === productId);
+  if(matchItem) {
+    cart=cart.filter(item => item.productId !== matchItem.productId);
+    saveCart();
+  }
   
-  cart=cart.filter(item => item.productId !== id);
-  saveCart();
 }
 export function updateQuantity(productId,quantity) {
   let matchItem = cart.find((item) => item.productId === productId);

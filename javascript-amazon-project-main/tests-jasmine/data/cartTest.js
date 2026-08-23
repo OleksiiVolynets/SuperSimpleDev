@@ -65,7 +65,9 @@ describe('deleteFromCart function',() => {
     deleteFromCart('15b6fc6f-327a-4ec4-896f-486349e85a3d');
     expect(cart.length).toEqual(1);
     cartText=JSON.stringify(cart);
-
+    expect(cart[0].productId).toEqual('54e0eccd-8f36-462b-b68a-8182611d9add');
+    expect(localStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(localStorage.setItem).toHaveBeenCalledWith('cart6', cartText);
   })
 
   it('delete a not existing product in the cart', () => {
@@ -74,10 +76,8 @@ describe('deleteFromCart function',() => {
     loadFromStorage();
     deleteFromCart('dd82ca78-a18b-4e2a-9250-31e67412f98d');
     expect(cart.length).toEqual(2);
-    cartText=JSON.stringify(cart);
+    expect(cart[0].productId).toEqual('15b6fc6f-327a-4ec4-896f-486349e85a3d');
+    expect(cart[1].productId).toEqual('54e0eccd-8f36-462b-b68a-8182611d9add');
+    expect(localStorage.setItem).toHaveBeenCalledTimes(0);
   });
-
-  afterEach(() => {
-    expect(localStorage.setItem).toHaveBeenCalledWith('cart6', cartText)
-  })
 })
