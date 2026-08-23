@@ -1,4 +1,4 @@
-import { jsx } from 'react/jsx-runtime';
+
 import { addToCart, cart, loadFromStorage, deleteFromCart, updateCartDelivery  } from '../../data/cart.js';
 
 describe('AddToCart function', ()=>{
@@ -89,7 +89,6 @@ describe('updateCartDelivery', () => {
   const productId1 = '15b6fc6f-327a-4ec4-896f-486349e85a3d';
   const productId2 = '54e0eccd-8f36-462b-b68a-8182611d9add';
   beforeEach(()=> {
-    let cartText;
     spyOn(localStorage, 'setItem');
     spyOn(localStorage, 'getItem').and.callFake(() => {
       return JSON.stringify([{
@@ -112,7 +111,7 @@ describe('updateCartDelivery', () => {
     expect(cart[1].productId).toEqual('54e0eccd-8f36-462b-b68a-8182611d9add');
     expect(cart[0].deliveryOptionId).toEqual('2');
     expect(cart[1].deliveryOptionId).toEqual('3');
-    cartText = JSON.stringify(cart);
+     const cartText = JSON.stringify(cart);
     expect(localStorage.setItem).toHaveBeenCalledTimes(1);
     expect(localStorage.setItem).toHaveBeenCalledWith('cart6', cartText);
 
