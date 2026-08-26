@@ -1,12 +1,12 @@
 import { deliveryTime  } from './deliveryTime.js';
 
-function Cart() {
+function Cart(localStoragekey) {
   const cart = {
     cartItems: undefined,
     loadFromStorage() {
-    this.cartItems = JSON.parse(localStorage.getItem('cart-oop')) || [];},
+    this.cartItems = JSON.parse(localStorage.getItem(localStoragekey)) || [];},
     saveCart() {
-    localStorage.setItem('cart-oop', JSON.stringify(this.cartItems));
+    localStorage.setItem(localStoragekey, JSON.stringify(this.cartItems));
     },
     addToCart(productId, quantity) {
     let matchItem = this.cartItems.find((item) => item.productId === productId);
@@ -64,9 +64,9 @@ return cart;
 }
 
 
-const cart = Cart();
+const cart = Cart('cart-oop');
 
-const businessCart = Cart();
+const businessCart = Cart('cart-business');
 
 
 cart.loadFromStorage();
