@@ -1,16 +1,16 @@
 import { deliveryTime  } from './deliveryTime.js';
 
 class Cart {
-  cartItems = undefined;
-  localStoragekey = undefined;
+  cartItems;
+  localStorageKey;
 
-  constructor(localStoragekey) {
-    this.localStoragekey = localStoragekey;
-    this.loadFromStorage(this.localStoragekey)
+  constructor(localStorageKey) {
+    this.localStoragekey = localStorageKey;
+    this.loadFromStorage()
   }
 
   loadFromStorage() {
-    this.cartItems = JSON.parse(localStorage.getItem(this.localStoragekey)) || [];}
+    this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey)) || [];}
 
   saveCart() {
     localStorage.setItem(this.localStoragekey, JSON.stringify(this.cartItems));
