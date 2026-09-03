@@ -21,7 +21,7 @@ class Product {
     return `images/ratings/rating-${this.rating.stars * 10}.png`;
   }
 
-  getPriceUrl(){
+  getPrice(){
     return `$${formatCurrency(this.priceCents)}`
   }
 }
