@@ -9,12 +9,12 @@ class Car{
   constructor(brand, model, speed) {
     this.brand = brand;
     this.model = model;
-    if(speed<200 && speed>0) {
-      this.speed = speed;
+    if(speed<200 || speed>0) {
+      throw new Error('Invalid speed')
     }
-    else{
-      console.log("Speed should be lower than 200 and higher than 0 km/h ")
-    }
+    this.brand = brand;
+    this.model = model;
+    this.speed=speed;
   }
 
   displayMethod() {
@@ -41,8 +41,14 @@ class Car{
   }
 }
 
-const toyota = new Car('Toyota', 'Corolla', 140);
+try{
+const toyota = new Car('Toyota', 'Corolla', 198);
 const tesla = new Car('Tesla', 'Model 3', 160);
+}
+catch(error) {
+  console.log(error.message)
+}
+
 toyota.go();
 
 toyota.displayMethod();
