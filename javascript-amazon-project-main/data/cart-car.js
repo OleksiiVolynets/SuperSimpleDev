@@ -7,8 +7,6 @@ class Car{
   speed;
 
   constructor(brand, model, speed) {
-    this.brand = brand;
-    this.model = model;
     if(speed>200 || speed<0) {
       throw new Error('Invalid speed')
     }
@@ -44,7 +42,7 @@ class Car{
 let toyota;
 let tesla;
 try{
-toyota = new Car('Toyota', 'Corolla', 198);
+toyota = new Car('Toyota', 'Corolla', 300);
 tesla = new Car('Tesla', 'Model 3', 160);
 }
 catch(error) {
