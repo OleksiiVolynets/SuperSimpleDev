@@ -39,17 +39,25 @@ class Car{
   }
 }
 
-let toyota;
-let tesla;
+
 try{
-toyota = new Car('Toyota', 'Corolla', 300);
-tesla = new Car('Tesla', 'Model 3', 160);
+let toyota = new Car('Toyota', 'Corolla', 300);
+toyota.go();
+
+toyota.displayMethod();
 }
 catch(error) {
   console.log(error.message)
 }
 
-toyota.go();
 
-toyota.displayMethod();
-tesla.displayMethod();
+
+
+try{
+  tesla = new Car('Tesla', 'Model 3', 160);
+  tesla.displayMethod();
+}
+catch(error) {
+  console.log(error.message)
+}
+
