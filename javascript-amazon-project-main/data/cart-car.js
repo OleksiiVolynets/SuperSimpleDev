@@ -21,7 +21,7 @@ class Car{
 
   go() {
     let newSpeed = this.speed+5;
-    if(newSpeed<200){
+    if(newSpeed<=200){
       this.speed+=5;
     }
     else{
@@ -30,7 +30,7 @@ class Car{
   }
   brake() {
     let newSpeed = this.speed-5;
-    if(newSpeed>0){
+    if(newSpeed>=0){
       this.speed-=5;
     }
     else{
