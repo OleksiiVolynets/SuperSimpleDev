@@ -65,8 +65,8 @@ export default class Car{
 }
 
 export class RaceCar extends Car{
-  constructor(brand, model, acceleration){
-    super(brand, model)
+  constructor(brand, model,speed, acceleration){
+    super(brand, model,speed)
     this.acceleration=acceleration
   }
 
@@ -84,6 +84,10 @@ export class RaceCar extends Car{
     
     console.log("Race car don't have a trunk")
   
+  }
+  displayMethod() {
+    
+    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.speed} km/h, Acceleration is ${this.acceleration}`)
   }
 }
 

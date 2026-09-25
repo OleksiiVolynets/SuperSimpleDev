@@ -31,12 +31,16 @@ catch(error) {
 }
 
 try{
-  let raceCar= new RaceCar('F1',"McLaren",20);
+  let raceCar= new RaceCar("McLaren","F1",100,20);
 
   raceCar.go();
   raceCar.openTrunk();
   raceCar.closeTrunk();
   raceCar.displayMethod()
+  raceCar.go();
+  raceCar.go();
+  raceCar.go();
+  raceCar.go();
 
 }
 catch(error)
