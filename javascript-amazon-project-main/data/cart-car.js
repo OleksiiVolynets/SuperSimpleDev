@@ -1,10 +1,10 @@
 
 
 
-class Car{
+export default class Car{
   brand;
   model;
-  speed;
+  #speed;
 
   constructor(brand, model, speed) {
     if(speed>200 || speed<0) {
@@ -12,52 +12,33 @@ class Car{
     }
     this.brand = brand;
     this.model = model;
-    this.speed=speed;
+    this.#speed=speed;
   }
 
   displayMethod() {
-    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.speed} km/h`)
+    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.#speed} km/h`)
   }
 
   go() {
     let newSpeed = this.speed+5;
     if(newSpeed<=200){
-      this.speed+=5;
+      this.#speed=newSpeed;
     }
     else{
-      console.log("Speed should be lower than 200 and higher than 0 km/h ")
+      console.log("Speed should be lower or equal to 200 and higher or equal 0 km/h ")
     }
   }
   brake() {
-    let newSpeed = this.speed-5;
+    let newSpeed = this.#speed-5;
     if(newSpeed>=0){
-      this.speed-=5;
+      this.#speed=newSpeed;
     }
     else{
-      console.log("Speed should be lower than 200 and higher than 0 km/h ")
+      console.log("Speed should be lower or equal to 200 and higher or equal to 0 km/h ")
     }
   }
 }
 
 
-try{
-let toyota = new Car('Toyota', 'Corolla', 300);
-toyota.go();
 
-toyota.displayMethod();
-}
-catch(error) {
-  console.log(error.message)
-}
-
-
-
-
-try{
-  tesla = new Car('Tesla', 'Model 3', 160);
-  tesla.displayMethod();
-}
-catch(error) {
-  console.log(error.message)
-}
 
