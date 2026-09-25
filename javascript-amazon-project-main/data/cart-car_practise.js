@@ -1,4 +1,4 @@
-import  Car from './cart-car.js'
+import  Car, { RaceCar } from './cart-car.js'
 
 try{
 let toyota = new Car('Toyota', 'Corolla', 300,true);
@@ -23,8 +23,23 @@ try{
   tesla.displayMethod();
   tesla.brake();
   tesla.openTrunk();
+  tesla.go()
   tesla.displayMethod();
 }
 catch(error) {
-  console.log(error.message)
+  console.log(error.message);
+}
+
+try{
+  let raceCar= new RaceCar('F1',"McLaren",20);
+
+  raceCar.go();
+  raceCar.openTrunk();
+  raceCar.closeTrunk();
+  raceCar.displayMethod()
+
+}
+catch(error)
+{
+  console.log(error.message);
 }

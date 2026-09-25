@@ -4,7 +4,7 @@
 export default class Car{
   brand;
   model;
-  #speed;
+  speed;
   isTrunkOpen;
 
   constructor(brand, model, speed) {
@@ -13,7 +13,7 @@ export default class Car{
     }
     this.brand = brand;
     this.model = model;
-    this.#speed=speed;
+    this.speed=speed;
     this.isTrunkOpen=false;
   }
 
@@ -25,13 +25,13 @@ export default class Car{
     else{
       messageTrunk='closed'
     }
-    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.#speed} km/h, Trunk is ${messageTrunk}`)
+    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.speed} km/h, Trunk is ${messageTrunk}`)
   }
 
   go() {
-    let newSpeed = this.#speed+5;
+    let newSpeed = this.speed+5;
     if(newSpeed<=200 && !this.isTrunkOpen){
-      this.#speed=newSpeed;
+      this.speed=newSpeed;
     }
     else if(newSpeed>200) {
       console.log("Speed should be lower or equal to 200 and higher or equal 0 km/h ")
@@ -41,9 +41,9 @@ export default class Car{
     }
   }
   brake() {
-    let newSpeed = this.#speed-5;
+    let newSpeed = this.speed-5;
     if(newSpeed>=0){
-      this.#speed=newSpeed;
+      this.speed=newSpeed;
     }
     else{
       console.log("Speed should be lower or equal to 200 and higher or equal to 0 km/h ")
@@ -51,7 +51,7 @@ export default class Car{
   }
 
   openTrunk(){
-    if(this.#speed!==0){
+    if(this.speed!==0){
       console.log("Car is going you can't open the trunk")
     }
     else{
@@ -64,6 +64,27 @@ export default class Car{
   }
 }
 
+export class RaceCar extends Car{
+  constructor(brand, model, acceleration){
+    super(brand, model)
+    this.acceleration=acceleration
+  }
 
+  go(){
+    let newSpeed= this.speed+this.acceleration;
+    if(newSpeed<=300){
+      this.speed=newSpeed;
+    }
+  }
+  
+  openTrunk(){
+    console.log("Race car don't have a trunk")
+  }
+  closeTrunk(){
+    
+    console.log("Race car don't have a trunk")
+  
+  }
+}
 
 
