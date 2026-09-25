@@ -7,19 +7,19 @@ export default class Car{
   #speed;
   isTrunkOpen;
 
-  constructor(brand, model, speed, isTrunkOpen) {
+  constructor(brand, model, speed) {
     if(speed>200 || speed<0) {
       throw new Error('Invalid speed')
     }
     this.brand = brand;
     this.model = model;
     this.#speed=speed;
-    this.isTrunkOpen=isTrunkOpen;
+    this.isTrunkOpen=false;
   }
 
   displayMethod() {
     let messageTrunk;
-    if(this.isTrunkOpen===true){
+    if(this.isTrunkOpen){
       messageTrunk='opened'
     }
     else{
@@ -30,11 +30,14 @@ export default class Car{
 
   go() {
     let newSpeed = this.#speed+5;
-    if(newSpeed<=200 && this.isTrunkOpen===false){
+    if(newSpeed<=200 && !this.isTrunkOpen){
       this.#speed=newSpeed;
     }
-    else{
+    else if(newSpeed>200) {
       console.log("Speed should be lower or equal to 200 and higher or equal 0 km/h ")
+    }
+    else if(this.isTrunkOpen){
+      console.log("Trunk should be closed ")
     }
   }
   brake() {
