@@ -1,7 +1,7 @@
 import  Car, { RaceCar } from './cart-car.js'
 
 try{
-let toyota = new Car('Toyota', 'Corolla', 300,true);
+let toyota = new Car('Toyota', 'Corolla', 300)
 toyota.go();
 
 toyota.displayMethod();
@@ -14,7 +14,7 @@ catch(error) {
 
 
 try{
-  let tesla = new Car('Tesla', 'Model 3', 0,false);
+  let tesla = new Car('Tesla', 'Model 3', 0);
   tesla.displayMethod();
   tesla.brake();
   tesla.go()

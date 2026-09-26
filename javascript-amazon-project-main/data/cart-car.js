@@ -2,21 +2,28 @@
 
 
 export default class Car{
-  brand;
-  model;
+  #brand;
+  #model;
   speed;
   isTrunkOpen;
+
 
   constructor(brand, model, speed) {
     if(speed>200 || speed<0) {
       throw new Error('Invalid speed')
     }
-    this.brand = brand;
-    this.model = model;
+    this.#brand = brand;
+    this.#model = model;
     this.speed=speed;
     this.isTrunkOpen=false;
   }
 
+  getBrand(){
+    return this.#brand
+  }
+  getModel(){
+    return this.#model;
+  }
   displayMethod() {
     let messageTrunk;
     if(this.isTrunkOpen){
@@ -25,7 +32,7 @@ export default class Car{
     else{
       messageTrunk='closed'
     }
-    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.speed} km/h, Trunk is ${messageTrunk}`)
+    console.log(`Brand: ${this.#brand}, Model: ${this.#model}, Speed: ${this.speed} km/h, Trunk is ${messageTrunk}`)
   }
 
   go() {
@@ -87,7 +94,7 @@ export class RaceCar extends Car{
   }
   displayMethod() {
     
-    console.log(`Brand: ${this.brand}, Model: ${this.model}, Speed: ${this.speed} km/h, Acceleration is ${this.acceleration}`)
+    console.log(`Brand: ${this.getBrand()}, Model: ${this.getModel()}, Speed: ${this.speed} km/h, Acceleration is ${this.acceleration}`)
   }
 }
 
