@@ -1,4 +1,4 @@
-import { addToCart, cart, cartTotalQuantity, deleteFromCart, updateQuantity, updateCartDelivery } from '../../data/cart.js';
+import { cart } from '../../data/cart-class.js';
 import { products } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import { deliveryTime } from '../../data/deliveryTime.js';
@@ -22,11 +22,10 @@ function dateFormat(number) {
 export function displayCheckOut() {
   const checkoutContainer = document.querySelector('.js-order-summary');
   const checkoutItemsNumber = document.querySelector('.js-return-to-home-link');
-  checkoutItemsNumber.innerHTML = cartTotalQuantity() + ' items';
-  
-  console.log(cart, cart.length)
+  checkoutItemsNumber.innerHTML = cart.cartTotalQuantity() + ' items';
+
   let checkoutItemsHTML = '';
-  cart.forEach((cartItem) => {
+  cart.cartItems.forEach((cartItem) => {
     let matchingItem = products.find( productItem => productItem.id === cartItem.productId);
     let selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
     let deliveryOptionsHTML = '';
@@ -108,7 +107,7 @@ export function displayCheckOut() {
   const dateInput = event.target.closest('.js-delivery-option')
   if (deleteBtn) {
     const { productId } = deleteBtn.dataset;
-    deleteFromCart(productId);
+    cart.deleteFromCart(productId);
     displayCheckOut();
     displayCheckoutSummary();
   }
@@ -124,7 +123,7 @@ export function displayCheckOut() {
     const { productId } = saveBtn.dataset;
     const quantityInput = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
     if (quantityInput > 0 && quantityInput < 1000 ) {
-      updateQuantity(productId, quantityInput);
+      cart.updateQuantity(productId, quantityInput);
       displayCheckOut();
       displayCheckoutSummary();
     }
@@ -135,7 +134,7 @@ export function displayCheckOut() {
   }
   if (dateInput) {
     const { productId, deliveryOptionId } = dateInput.dataset;
-    updateCartDelivery (productId, deliveryOptionId);
+    cart.updateCartDelivery (productId, deliveryOptionId);
     displayCheckOut();
     displayCheckoutSummary();
   }
@@ -149,7 +148,7 @@ checkoutContainer.addEventListener('keydown', (event) => {
       const { productId } = quantityInput.dataset;
       const newValue = Number(quantityInput.value);
       if (newValue > 0 && newValue < 1000 ) {
-        updateQuantity(productId, newValue);
+        cart.updateQuantity(productId, newValue);
         displayCheckOut();
         displayCheckoutSummary();
       }
