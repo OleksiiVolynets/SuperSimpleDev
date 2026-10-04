@@ -1,6 +1,6 @@
 import { displayCheckOut } from '../../scripts/checkout/orderSummary.js';
 
-import { loadFromStorage, cart } from '../../data/cart.js'
+import { cart } from '../../data/cart.js'
 
 describe('test suite: displayCheckOut', () => {
   const productId1 = '15b6fc6f-327a-4ec4-896f-486349e85a3d';
@@ -12,8 +12,7 @@ describe('test suite: displayCheckOut', () => {
             <div class="js-order-summary"></div> 
             <div class="js-payment-summary"></div>`;
 
-    spyOn(localStorage, 'getItem').and.callFake(() => {
-      return JSON.stringify([{
+    cart.cartItems=[{
         productId: productId1,
         quantity: 4,
         deliveryOptionId:'1'
@@ -21,10 +20,7 @@ describe('test suite: displayCheckOut', () => {
         productId: productId2,
         quantity: 6,
         deliveryOptionId:'3'
-      }])
-    });
-    
-    loadFromStorage();
+      }];
     displayCheckOut ();
   })
   it('display the cart', () => {
@@ -52,9 +48,9 @@ describe('test suite: displayCheckOut', () => {
 
     expect(document.querySelector(`.js-cart-item-container-${productId2}`)).not.toEqual(null);
 
-    expect(cart.length).toBe(1)
-    expect(cart[0].productId).toBe(productId2);
-    expect(cart[0].quantity).toBe(6);
+    expect(cart.cartItems.length).toBe(1)
+    expect(cart.cartItems[0].productId).toBe(productId2);
+    expect(cart.cartItems[0].quantity).toBe(6);
     expect(document.querySelector(`.js-product-name-${productId2}`).innerText).toBe('2 Slot Toaster - Black')
     expect(document.querySelector(`.js-cart-item-container-${productId2}`).querySelector('.product-price').innerText).toBe('$18.99')
      
@@ -66,9 +62,9 @@ describe('test suite: displayCheckOut', () => {
     dateInputPr1.click();
     dateInputPr1 = document.querySelector(`.js-delivery-option[data-product-id="${productId1}"][data-delivery-option-id="${'3'}"]`);
     expect(dateInputPr1.querySelector('input').checked).toBe(true);
-    expect(cart.length).toBe(2);
-    expect(cart[0].productId).toBe(productId1);
-    expect(cart[0].deliveryOptionId).toBe('3');
+    expect(cart.cartItems.length).toBe(2);
+    expect(cart.cartItems[0].productId).toBe(productId1);
+    expect(cart.cartItems[0].deliveryOptionId).toBe('3');
     expect(document.querySelector('.js-shipping-payment-summary-money').innerText).toBe('$19.98');
     expect(document.querySelector('.js-total-payment-summary-money').innerText).toBe('$239.49')
   })
