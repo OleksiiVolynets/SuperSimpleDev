@@ -1,4 +1,4 @@
-import { cartTotalQuantity, cart } from '../../data/cart.js'
+import { cart } from '../../data/cart-class.js'
 import { formatCurrency} from '../utils/money.js';
 import { products } from '../../data/products.js';
 import { deliveryTime } from '../../data/deliveryTime.js'
@@ -11,7 +11,7 @@ export function displayCheckoutSummary(){
   const checkoutSummary = document.querySelector('.js-payment-summary');
   let itemsPrice = 0;
   let deliveryPrice = 0;
-  cart.forEach((cartItem) => {
+  cart.cartItems.forEach((cartItem) => {
       const matchingItem = products.find( productItem => productItem.id === cartItem.productId);
       const selectedDeliveryOption = deliveryTime.find( deliveryItem => deliveryItem.deliveryId === cartItem.deliveryOptionId);
       deliveryPrice += selectedDeliveryOption.deliveryPriceCents;
@@ -24,7 +24,7 @@ export function displayCheckoutSummary(){
   </div>
 
   <div class="payment-summary-row">
-    <div>Items (${cartTotalQuantity()}):</div>
+    <div>Items (${cart.cartTotalQuantity()}):</div>
     <div class="payment-summary-money">$${formatCurrency(itemsPrice)}</div>
   </div>
 

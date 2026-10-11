@@ -63,13 +63,4 @@ class Cart {
     }
 }
 
-
-
-const cart = new Cart('cart-oop');
-
-const businessCart = new Cart('cart-business');
-
-cart.localStorageKey ='test';
-console.log(cart);
-console.log(businessCart);
-console.log(businessCart instanceof Cart)
+export const cart = new Cart('cart6');
