@@ -1,14 +1,16 @@
 import { displayCheckOut } from '../../scripts/checkout/orderSummary.js';
 
 import { cart } from '../../data/cart-class.js';
-import { loadProducts } from '../../data/products.js';
+import { loadProductsFetch } from '../../data/products.js';
 
 describe('test suite: displayCheckOut', () => {
   const productId1 = '15b6fc6f-327a-4ec4-896f-486349e85a3d';
   const productId2 = '54e0eccd-8f36-462b-b68a-8182611d9add';
 
   beforeAll((done)=>{
-    loadProducts(done);
+    loadProductsFetch().then(()=>{
+      done()
+    })
   }
   )
   beforeEach(()=> {
